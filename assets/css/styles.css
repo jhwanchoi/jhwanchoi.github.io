@@ -16,8 +16,11 @@ body{
   background:var(--bg); color:var(--text); font-family:var(--sans);
   line-height:1.6; -webkit-font-smoothing:antialiased;
   background-image:
+    linear-gradient(rgba(148,163,184,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.022) 1px, transparent 1px),
     radial-gradient(900px 500px at 80% -10%, rgba(34,211,238,.06), transparent),
     radial-gradient(700px 500px at 0% 10%, rgba(167,139,250,.05), transparent);
+  background-size:42px 42px, 42px 42px, auto, auto;
   background-attachment:fixed;
 }
 a{ color:inherit; text-decoration:none; }
@@ -103,11 +106,13 @@ section{ max-width:var(--maxw); margin:0 auto; padding:80px 28px; scroll-margin-
 
 /* ---------- skills ---------- */
 .skill-grid{ display:flex; flex-direction:column; }
-.skill-row{ display:grid; grid-template-columns:150px 1fr; gap:16px; align-items:baseline;
+.skill-row{ display:grid; grid-template-columns:150px minmax(0,1fr); gap:16px; align-items:center;
   padding:12px 0; border-bottom:1px solid var(--border); }
 .skill-row:hover .skill-cat{ color:var(--violet); }
 .skill-cat{ font-family:var(--mono); font-size:.78rem; color:var(--cyan); letter-spacing:.04em; transition:color .2s; }
-.chips{ color:var(--muted); font-size:.92rem; }
+.chips{ color:var(--muted); font-size:.92rem; min-width:0; }
+.badges{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.badges img{ height:23px; display:block; border-radius:4px; }
 
 /* ---------- projects ---------- */
 .proj-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -119,7 +124,10 @@ section{ max-width:var(--maxw); margin:0 auto; padding:80px 28px; scroll-margin-
 .proj-name{ font-weight:800; font-size:1.08rem; }
 .proj-metric{ color:var(--green); font-size:.8rem; font-weight:700; text-align:right; }
 .proj-sub{ color:var(--muted); font-size:.82rem; }
-.proj-toggle{ font-family:var(--mono); font-size:.7rem; color:var(--cyan); margin-top:5px; }
+.proj-tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; }
+.tag{ font-family:var(--mono); font-size:.66rem; color:var(--muted); background:var(--surface-2);
+  border:1px solid var(--border); border-radius:6px; padding:2px 7px; }
+.proj-toggle{ font-family:var(--mono); font-size:.7rem; color:var(--cyan); margin-top:8px; }
 .proj-toggle::before{ content:"+ "; }
 .proj.is-open .proj-toggle::before{ content:"– "; }
 .proj-body{ padding:16px 18px; display:flex; flex-direction:column; gap:9px;

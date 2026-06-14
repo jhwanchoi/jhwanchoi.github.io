@@ -83,16 +83,16 @@
       <div class="section-index">03</div>
       <h2 class="section-title" data-i18n="skills.title">Skills</h2>
       <div class="skill-grid">
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.languages">Languages</span><span class="chips">Python · C++ · TypeScript</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.backend">Backend</span><span class="chips">Django · FastAPI · NestJS</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.database">Database</span><span class="chips">PostgreSQL · MongoDB · Redis</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.cloud">Cloud</span><span class="chips">AWS (EC2 · EKS · ECS · SQS · SNS · Lambda · S3 · Bedrock)</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.infra">Infrastructure</span><span class="chips">Kubernetes (RKE2) · Docker · Terraform · CDK · Rancher</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.mlops">ML / MLOps</span><span class="chips">Ray · KubeRay · MLflow · KServe · Knative · lakeFS</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.cicd">CI/CD</span><span class="chips">ArgoCD · GitHub Actions · Harbor · Helm · Airflow</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.monitoring">Monitoring</span><span class="chips">Grafana · Prometheus · Loki · DataDog</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.ai">AI / LLM</span><span class="chips">Claude Code · Gemini CLI · Codex · MCP · AWS Bedrock · n8n</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.tools">Tools</span><span class="chips">Git · Jira · Confluence · Atlassian API</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.languages">Languages</span><span class="chips" data-cat="languages">Python · C++ · TypeScript</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.backend">Backend</span><span class="chips" data-cat="backend">Django · FastAPI · NestJS</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.database">Database</span><span class="chips" data-cat="database">PostgreSQL · MongoDB · Redis</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.cloud">Cloud</span><span class="chips" data-cat="cloud">AWS · EC2 · EKS · ECS · SQS · SNS · Lambda · S3 · Bedrock</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.infra">Infrastructure</span><span class="chips" data-cat="infra">Kubernetes (RKE2) · Docker · Terraform · CDK · Rancher</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.mlops">ML / MLOps</span><span class="chips" data-cat="mlops">Ray · KubeRay · MLflow · KServe · Knative · lakeFS</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.cicd">CI/CD</span><span class="chips" data-cat="cicd">ArgoCD · GitHub Actions · Harbor · Helm · Airflow</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.monitoring">Monitoring</span><span class="chips" data-cat="monitoring">Grafana · Prometheus · Loki · Datadog</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.ai">AI / LLM</span><span class="chips" data-cat="ai">Claude Code · Gemini CLI · Codex · MCP · AWS Bedrock · n8n</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.tools">Tools</span><span class="chips" data-cat="tools">Git · Jira · Confluence · Atlassian API</span></div>
       </div>
     </section>
 
@@ -107,6 +107,7 @@
             <div class="proj-top"><span class="proj-name" data-i18n="proj.inferit.name">Inferit</span>
               <span class="proj-metric mono" data-i18n="proj.inferit.metric">6mo → 1.5mo</span></div>
             <span class="proj-sub" data-i18n="proj.inferit.sub">svnet3 build/inference acceleration</span>
+            <span class="proj-tags"><span class="tag">Ray</span><span class="tag">MLflow</span><span class="tag">lakeFS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-inferit-body" class="proj-body" hidden>
@@ -120,6 +121,7 @@
             <div class="proj-top"><span class="proj-name" data-i18n="proj.mtbf.name">MTBF Validation</span>
               <span class="proj-metric mono" data-i18n="proj.mtbf.metric">173,101 clips · 99.97%</span></div>
             <span class="proj-sub" data-i18n="proj.mtbf.sub">Large-scale reliability validation</span>
+            <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">PostgreSQL</span><span class="tag">HCP Object Storage</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-mtbf-body" class="proj-body" hidden>
@@ -133,6 +135,7 @@
             <div class="proj-top"><span class="proj-name" data-i18n="proj.prism.name">PRISM</span>
               <span class="proj-metric mono" data-i18n="proj.prism.metric">~150 req/mo · 80% faster</span></div>
             <span class="proj-sub" data-i18n="proj.prism.sub">Jira-integrated ISP conversion</span>
+            <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">AWS SQS</span><span class="tag">Lambda</span><span class="tag">Terraform</span><span class="tag">Airflow</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-prism-body" class="proj-body" hidden>
@@ -146,6 +149,7 @@
             <div class="proj-top"><span class="proj-name" data-i18n="proj.wls.name">WLS</span>
               <span class="proj-metric mono" data-i18n="proj.wls.metric">₩100M/mo prevented</span></div>
             <span class="proj-sub" data-i18n="proj.wls.sub">Labeling-log analysis platform</span>
+            <span class="proj-tags"><span class="tag">Django</span><span class="tag">MongoDB</span><span class="tag">AWS SQS</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-wls-body" class="proj-body" hidden>
@@ -158,6 +162,7 @@
             <div class="proj-top"><span class="proj-name" data-i18n="proj.alas.name">ALAS</span>
               <span class="proj-metric mono" data-i18n="proj.alas.metric">-35% manual work</span></div>
             <span class="proj-sub" data-i18n="proj.alas.sub">Auto-labeling microservice</span>
+            <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">AWS ECS/EKS</span><span class="tag">CDK</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-alas-body" class="proj-body" hidden>

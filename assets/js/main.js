@@ -1,6 +1,18 @@
 import { applyLang } from "./i18n.js";
+import { SKILLS, badgeURL } from "./skills.js";
 
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---- render shields.io skill badges (replaces text fallback) ---- */
+function initSkills(){
+  document.querySelectorAll(".chips[data-cat]").forEach(span=>{
+    const list = SKILLS[span.getAttribute("data-cat")];
+    if(!list) return;
+    span.classList.add("badges");
+    span.innerHTML = list.map(s=>
+      `<img loading="lazy" src="${badgeURL(s)}" alt="${s.n}">`).join("");
+  });
+}
 
 /* ---- language toggle ---- */
 function initLang(){
@@ -100,5 +112,5 @@ function retype(){
 }
 
 window.addEventListener("DOMContentLoaded", ()=>{
-  initLang(); initSpy(); initCards(); initCounters(); retype();
+  initLang(); initSkills(); initSpy(); initCards(); initCounters(); retype();
 });
