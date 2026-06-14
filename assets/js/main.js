@@ -5,15 +5,21 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* ---- language toggle ---- */
 function initLang(){
   let lang = "en";
-  try{ lang = localStorage.getItem("lang") || "en"; }catch(e){}
+  try{ lang = (localStorage.getItem("lang") === "ko") ? "ko" : "en"; }catch(e){}
   applyLang(lang);
   const btn = document.getElementById("lang-toggle");
-  if(btn){
+  function syncBtn(){
+    if(!btn) return;
     btn.textContent = (lang === "en") ? "EN" : "KR";
+    // accessible name announces the action, in the current UI language
+    btn.setAttribute("aria-label", (lang === "en") ? "Switch to Korean" : "영어로 전환");
+  }
+  syncBtn();
+  if(btn){
     btn.addEventListener("click", ()=>{
       lang = (lang === "en") ? "ko" : "en";
       applyLang(lang);
-      btn.textContent = (lang === "en") ? "EN" : "KR";
+      syncBtn();
       retype();           // replay the hero typing in the new language
     });
   }
@@ -26,8 +32,9 @@ function initSpy(){
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(en=>{
       if(en.isIntersecting){
-        links.forEach(l=>l.classList.remove("active"));
-        const a = byId(en.target.id); if(a) a.classList.add("active");
+        links.forEach(l=>{ l.classList.remove("active"); l.removeAttribute("aria-current"); });
+        const a = byId(en.target.id);
+        if(a){ a.classList.add("active"); a.setAttribute("aria-current","true"); }
       }
     });
   }, { rootMargin:"-45% 0px -45% 0px", threshold:0 });
@@ -39,11 +46,12 @@ function initCards(){
   document.querySelectorAll("[data-project]").forEach(card=>{
     const head = card.querySelector(".proj-head");
     const body = card.querySelector(".proj-body");
+    if(!head || !body) return;
     head.addEventListener("click", ()=>{
       const open = head.getAttribute("aria-expanded") === "true";
       head.setAttribute("aria-expanded", String(!open));
-      if(open){ body.hidden = true; card.removeAttribute("aria-open"); }
-      else{ body.hidden = false; card.setAttribute("aria-open",""); }
+      body.hidden = open;
+      card.classList.toggle("is-open", !open);
     });
   });
 }
@@ -51,6 +59,7 @@ function initCards(){
 /* ---- count-up on scroll for numeric-leading metrics ---- */
 function countUp(el){
   const target = el.textContent.trim();
+  if(/→/.test(target)) return;                          // skip before→after / range metrics
   const m = target.match(/^([^\d]*)([\d,.]+)(.*)$/);   // prefix, number, suffix
   if(!m) return;                                        // non-numeric: leave as-is
   const [ , pre, numStr, suf ] = m;

@@ -30,7 +30,7 @@
     <!-- ============ HOME ============ -->
     <section id="home">
       <div class="hero">
-        <div class="hero-cmd"><span class="prompt">$</span> <span class="muted" data-i18n="hero.cmd">cat profile.md</span></div>
+        <div class="hero-cmd" aria-hidden="true"><span class="prompt">$</span> <span class="muted" data-i18n="hero.cmd">cat profile.md</span></div>
         <h1 class="hero-name" data-i18n="hero.name">Jihwan Choi</h1>
         <p class="hero-role" data-i18n="hero.role">MLOps &amp; Software Engineer · SVEvalFlow Owner</p>
         <p class="hero-tagline" data-i18n="hero.tagline">I turn ML infrastructure into measurable business value — distributed validation, cost-driven on-prem moves, and AI-native tooling.</p>
@@ -61,19 +61,19 @@
           </header>
           <h3 class="tl-sub" data-i18n="work.sv.mlops.h">MLOps Platform</h3>
           <ul>
-            <li data-i18n="work.sv.mlops.b1"></li>
-            <li data-i18n="work.sv.mlops.b2"></li>
-            <li data-i18n="work.sv.mlops.b3"></li>
+            <li data-i18n="work.sv.mlops.b1">Co-designed a shared GPU cluster on RKE2 Kubernetes (60+ heterogeneous GPUs); led scheduler &amp; queue policy design; integrated 15+ MLOps components (Ray/KubeRay, MLflow, Airflow, ArgoCD, KServe, Harbor).</li>
+            <li data-i18n="work.sv.mlops.b2">Sole ownership of the inference/evaluation workflow (SVEvalFlow): Inferit, MTBF, PRISM.</li>
+            <li data-i18n="work.sv.mlops.b3">Built 3 CI/CD pipelines (GitHub Actions + ArgoCD) and Scale-to-Zero serverless inference (KServe/Knative) to cut idle GPU cost.</li>
           </ul>
-          <h3 class="tl-sub" data-i18n="work.sv.data.h">Data &amp; Labeling Automation</h3>
-          <ul><li data-i18n="work.sv.data.b1"></li></ul>
+          <h3 class="tl-sub" data-i18n="work.sv.data.h">Data &amp; Labeling Automation (2022 – 2025)</h3>
+          <ul><li data-i18n="work.sv.data.b1">Log-analysis, auto-labeling, and ingestion services (WLS, ALAS, IGS, SURF, RNS, SLT) — see Projects.</li></ul>
         </article>
         <article class="tl-item">
           <header class="tl-head">
             <span class="tl-co" data-i18n="work.kiro.co">KIRO</span>
             <span class="tl-meta"><span data-i18n="work.kiro.role">Researcher</span> · <span data-i18n="work.kiro.date">Jan – Jul 2022</span></span>
           </header>
-          <ul><li data-i18n="work.kiro.b1"></li></ul>
+          <ul><li data-i18n="work.kiro.b1">Built a real-time gesture-based Human-Robot Interaction system; supported an autism-diagnosis assistance robot project.</li></ul>
         </article>
       </div>
     </section>
@@ -103,53 +103,66 @@
       <div class="proj-grid">
 
         <article class="proj card" data-project>
-          <button class="proj-head" aria-expanded="false">
+          <button class="proj-head" aria-expanded="false" aria-controls="proj-inferit-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.inferit.name">Inferit</span>
               <span class="proj-metric mono" data-i18n="proj.inferit.metric">6mo → 1.5mo</span></div>
             <span class="proj-sub" data-i18n="proj.inferit.sub">svnet3 build/inference acceleration</span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
-          <div class="proj-body" hidden><p data-i18n="proj.inferit.d1"></p><p data-i18n="proj.inferit.d2"></p></div>
+          <div id="proj-inferit-body" class="proj-body" hidden>
+            <p data-i18n="proj.inferit.d1">Distributed/parallelized single-machine inference across cluster GPUs → cut a 20,000-hour validation from 6+ months to 1.5 months.</p>
+            <p data-i18n="proj.inferit.d2">Versioned customer option files, eliminating 1–2 days of engineer↔PM communication; 5+ major versions; per-ticket auto-inference (OD/LD/TSR/TLR); integrated Evaluation Driven Development.</p>
+          </div>
         </article>
 
         <article class="proj card" data-project>
-          <button class="proj-head" aria-expanded="false">
+          <button class="proj-head" aria-expanded="false" aria-controls="proj-mtbf-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.mtbf.name">MTBF Validation</span>
               <span class="proj-metric mono" data-i18n="proj.mtbf.metric">173,101 clips · 99.97%</span></div>
             <span class="proj-sub" data-i18n="proj.mtbf.sub">Large-scale reliability validation</span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
-          <div class="proj-body" hidden><p data-i18n="proj.mtbf.d1"></p><p data-i18n="proj.mtbf.d2"></p></div>
+          <div id="proj-mtbf-body" class="proj-body" hidden>
+            <p data-i18n="proj.mtbf.d1">Runs svnet3 inference on customer-ODD data before/after release, detecting FP &amp; AEB flags; 205% higher throughput and 67.3% lower processing time vs a single machine.</p>
+            <p data-i18n="proj.mtbf.d2">Proposed &amp; executed a Cloud→On-Premise transition: AWS ₩820M → On-Prem ₩370M (55% saved). Automation enables single-person operation of large-scale validation.</p>
+          </div>
         </article>
 
         <article class="proj card" data-project>
-          <button class="proj-head" aria-expanded="false">
+          <button class="proj-head" aria-expanded="false" aria-controls="proj-prism-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.prism.name">PRISM</span>
               <span class="proj-metric mono" data-i18n="proj.prism.metric">~150 req/mo · 80% faster</span></div>
             <span class="proj-sub" data-i18n="proj.prism.sub">Jira-integrated ISP conversion</span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
-          <div class="proj-body" hidden><p data-i18n="proj.prism.d1"></p><p data-i18n="proj.prism.d2"></p></div>
+          <div id="proj-prism-body" class="proj-body" hidden>
+            <p data-i18n="proj.prism.d1">Phase 1 (operating): event-driven ISP conversion via Jira Webhook → SQS → Lambda; ~150 requests/month, 80% faster than manual.</p>
+            <p data-i18n="proj.prism.d2">Phase 2 (Resim, in dev): did initial development, now technical lead supporting a developer from another org; dual-version (issue + latest) inference via Airflow DAG.</p>
+          </div>
         </article>
 
         <article class="proj card" data-project>
-          <button class="proj-head" aria-expanded="false">
+          <button class="proj-head" aria-expanded="false" aria-controls="proj-wls-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.wls.name">WLS</span>
               <span class="proj-metric mono" data-i18n="proj.wls.metric">₩100M/mo prevented</span></div>
             <span class="proj-sub" data-i18n="proj.wls.sub">Labeling-log analysis platform</span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
-          <div class="proj-body" hidden><p data-i18n="proj.wls.d1"></p></div>
+          <div id="proj-wls-body" class="proj-body" hidden>
+            <p data-i18n="proj.wls.d1">Collected/analyzed 80M daily labeling-log events to prevent ~₩100M/month in overbilling (settlement-audit confirmed); findings fed UI/UX improvements and the ALAS model (+20% labeling efficiency).</p>
+          </div>
         </article>
 
         <article class="proj card" data-project>
-          <button class="proj-head" aria-expanded="false">
+          <button class="proj-head" aria-expanded="false" aria-controls="proj-alas-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.alas.name">ALAS</span>
               <span class="proj-metric mono" data-i18n="proj.alas.metric">-35% manual work</span></div>
             <span class="proj-sub" data-i18n="proj.alas.sub">Auto-labeling microservice</span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
-          <div class="proj-body" hidden><p data-i18n="proj.alas.d1"></p></div>
+          <div id="proj-alas-body" class="proj-body" hidden>
+            <p data-i18n="proj.alas.d1">Auto-labeling microservice reducing manual annotation ~35%; ECS→EKS migration, CDK-based IaC.</p>
+          </div>
         </article>
 
       </div>
@@ -161,27 +174,29 @@
       <h2 class="section-title" data-i18n="ai.title">AI-Native Development</h2>
       <p class="muted mono ai-period" data-i18n="ai.sub">2025 – Present</p>
       <div class="ai-grid">
-        <div class="ai-card card"><h3 data-i18n="ai.llmwiki.t">LLM Wiki</h3><p data-i18n="ai.llmwiki.d"></p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.debate.t">Multi-Model Debate</h3><p data-i18n="ai.debate.d"></p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.bedrock.t">Bedrock Observability</h3><p data-i18n="ai.bedrock.d"></p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.plugin.t">Cluster-ops Plugin</h3><p data-i18n="ai.plugin.d"></p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.evangelism.t">Evangelism</h3><p data-i18n="ai.evangelism.d"></p></div>
+        <div class="ai-card card"><h3 data-i18n="ai.llmwiki.t">LLM Wiki</h3><p data-i18n="ai.llmwiki.d">Git + Markdown MLOps ops-knowledge system (NL authoring, search, Q&amp;A, quality lint, sync) — turned scattered knowledge into a team asset.</p></div>
+        <div class="ai-card card"><h3 data-i18n="ai.debate.t">Multi-Model Debate</h3><p data-i18n="ai.debate.d">Claude/GPT/Gemini draft → critique → third-party review → synthesize, raising reliability for design reviews. (github.com/jhwanchoi/dotfiles)</p></div>
+        <div class="ai-card card"><h3 data-i18n="ai.bedrock.t">Bedrock Observability</h3><p data-i18n="ai.bedrock.d">CloudWatch dashboard + Slack alerts for in-house LLM usage/cost visibility.</p></div>
+        <div class="ai-card card"><h3 data-i18n="ai.plugin.t">Cluster-ops Plugin</h3><p data-i18n="ai.plugin.d">MLOps cluster ops utilities (diagnostics, storage) exposed as slash commands.</p></div>
+        <div class="ai-card card"><h3 data-i18n="ai.evangelism.t">Evangelism</h3><p data-i18n="ai.evangelism.d">Hosted internal AI-driven development meetings; shared modern AI tooling trends (Claude Code, Gemini CLI, Codex; MCP/Plugin/Skill).</p></div>
       </div>
     </section>
   </main>
 
   <footer id="site-footer">
-    <div class="footer-edu">
-      <span class="section-index" data-i18n="edu.title">Education</span>
-      <div><strong data-i18n="edu.school">Handong Global University</strong>
-        <span class="muted" data-i18n="edu.degree">B.S. in Electronic &amp; Computer Engineering</span>
-        <span class="mono muted" data-i18n="edu.date">2018 – 2022</span></div>
-    </div>
-    <div class="footer-links">
-      <a href="mailto:jhwan333@gmail.com">jhwan333@gmail.com</a>
-      <a href="https://github.com/jhwanchoi" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/jihwan-choi-717554233/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#home" data-i18n="footer.top">Back to top</a>
+    <div class="footer-inner">
+      <div class="footer-edu">
+        <span class="section-index" data-i18n="edu.title">Education</span>
+        <div><strong data-i18n="edu.school">Handong Global University</strong>
+          <span class="muted" data-i18n="edu.degree">B.S. in Electronic &amp; Computer Engineering</span>
+          <span class="mono muted" data-i18n="edu.date">2018 – 2022</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:jhwan333@gmail.com">jhwan333@gmail.com</a>
+        <a href="https://github.com/jhwanchoi" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/jihwan-choi-717554233/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#home" data-i18n="footer.top">Back to top</a>
+      </div>
     </div>
   </footer>
 
