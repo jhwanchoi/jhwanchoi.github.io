@@ -149,6 +149,9 @@ section{ max-width:var(--maxw); margin:0 auto; padding:80px 28px; scroll-margin-
 .genai-evangelism{ font-size:.85rem; margin-top:16px; }
 .tl-diagram{ margin:14px 0 4px; }
 .proj-body .genai-diagram{ margin-top:6px; }
+.shots{ display:flex; flex-direction:column; gap:10px; margin-top:12px; }
+.shot{ width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; }
+.shots .label-cap{ font-size:.7rem; color:var(--faint); font-family:var(--mono); }
 .ai-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
 .ai-card{ transition:border-color .2s, transform .2s; }
 .ai-card:hover{ border-color:var(--green); transform:translateY(-2px); }
