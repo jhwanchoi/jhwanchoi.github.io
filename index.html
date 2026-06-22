@@ -115,6 +115,7 @@
             <li data-i18n="work.sv.mlops.b2">Sole ownership of the inference/evaluation workflow (SVEvalFlow): Inferit, MTBF, PRISM.</li>
             <li data-i18n="work.sv.mlops.b3">Built 3 CI/CD pipelines (GitHub Actions + ArgoCD) and Scale-to-Zero serverless inference (KServe/Knative) to cut idle GPU cost.</li>
           </ul>
+          <img class="genai-diagram tl-diagram" src="assets/diagrams/mlops-platform.svg" alt="Shared GPU cluster MLOps platform and SVEvalFlow layered architecture" loading="lazy">
           <h3 class="tl-sub" data-i18n="work.sv.data.h">Data &amp; Labeling Automation (2022 – 2025)</h3>
           <ul><li data-i18n="work.sv.data.b1">Log-analysis, auto-labeling, and ingestion services (WLS, ALAS, IGS, SURF, RNS, SLT) — see Projects.</li></ul>
         </article>
@@ -163,6 +164,7 @@
           <div id="proj-inferit-body" class="proj-body" hidden>
             <p data-i18n="proj.inferit.d1">Distributed/parallelized single-machine inference across cluster GPUs → cut a 20,000-hour validation from 6+ months to 1.5 months.</p>
             <p data-i18n="proj.inferit.d2">Versioned customer option files, eliminating 1–2 days of engineer↔PM communication; 5+ major versions; per-ticket auto-inference (OD/LD/TSR/TLR); integrated Evaluation Driven Development.</p>
+            <img class="genai-diagram" src="assets/diagrams/inferit.svg" alt="Inferit svnet3 build and distributed inference architecture" loading="lazy">
           </div>
         </article>
 
@@ -177,6 +179,7 @@
           <div id="proj-mtbf-body" class="proj-body" hidden>
             <p data-i18n="proj.mtbf.d1">Runs svnet3 inference on customer-ODD data before/after release, detecting FP &amp; AEB flags; 205% higher throughput and 67.3% lower processing time vs a single machine.</p>
             <p data-i18n="proj.mtbf.d2">Proposed &amp; executed a Cloud→On-Premise transition: AWS ₩820M → On-Prem ₩370M (55% saved). Automation enables single-person operation of large-scale validation.</p>
+            <img class="genai-diagram" src="assets/diagrams/mtbf-pipeline.svg" alt="MTBF large-scale reliability validation pipeline architecture" loading="lazy">
           </div>
         </article>
 
@@ -191,6 +194,7 @@
           <div id="proj-prism-body" class="proj-body" hidden>
             <p data-i18n="proj.prism.d1">Phase 1 (operating): event-driven ISP conversion via Jira Webhook → SQS → Lambda; ~150 requests/month, 80% faster than manual.</p>
             <p data-i18n="proj.prism.d2">Phase 2 (Resim, in dev): did initial development, now technical lead supporting a developer from another org; dual-version (issue + latest) inference via Airflow DAG.</p>
+            <img class="genai-diagram" src="assets/diagrams/prism.svg" alt="PRISM Jira-driven ISP conversion and re-simulation architecture" loading="lazy">
           </div>
         </article>
 

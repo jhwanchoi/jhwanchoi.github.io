@@ -82,7 +82,7 @@ function diagram(d){
     const lays = boxes.map(b => boxLayout(b, boxW));
     const rowH = Math.max(...lays.map(l => l.h));
     const labelH = row.label ? 20 : 0;
-    rowMeta.push({ boxes, lays, boxW, rowH, y: y + labelH, labelY: y + 13, label: row.label });
+    rowMeta.push({ boxes, lays, boxW, rowH, y: y + labelH, labelY: y + 13, label: row.label, flow: row.flow !== false });
     y += labelH + rowH + ROWGAP;
   }
   // legend
@@ -110,7 +110,7 @@ function diagram(d){
     const mid = rm.y + rm.rowH/2;
     rm.boxes.forEach((b, i) => {
       svg += renderBox(x, rm.y, rm.boxW, rm.rowH, b, rm.lays[i]);
-      if(i < rm.boxes.length-1){
+      if(rm.flow && i < rm.boxes.length-1){
         const ax = x + rm.boxW, ax2 = x + rm.boxW + GAP;
         svg += `<path d="M${ax+2} ${mid} H${ax2-4}" stroke="${C.arrow}" stroke-width="1.7" fill="none" marker-end="url(#ah)"/>`;
       }
@@ -189,6 +189,103 @@ const DIAGRAMS = [
       "hybrid keyword + vector retrieval",
       "CI-rebuilt index (Git + Markdown)",
       "grounded answers with citations",
+    ],
+  },
+  // ---- platform & SVEvalFlow project diagrams ----
+  {
+    file: "mlops-platform.svg",
+    title: "MLOps Platform — Shared GPU Cluster & SVEvalFlow",
+    subtitle: "RKE2 Kubernetes · GitOps · co-designed (led scheduler & queue policy)",
+    rows: [
+      { label:"SVEVALFLOW · inference / evaluation (sole owner)", flow:false, boxes:[
+        { title:"Inferit", lines:["svnet3 build","+ inference"], accent:"green", emphasis:true },
+        { title:"MTBF Validation", lines:["AEB analysis","at scale"], accent:"green", emphasis:true },
+        { title:"PRISM", lines:["ISP convert","+ re-sim"], accent:"green", emphasis:true },
+      ]},
+      { label:"ORCHESTRATION & MLOPS", flow:false, boxes:[
+        { title:"Airflow", lines:["DAG orchestration"], accent:"cyan" },
+        { title:"Ray / KubeRay", lines:["distributed compute"], accent:"cyan" },
+        { title:"KServe / Knative", lines:["scale-to-zero serve"], accent:"cyan" },
+        { title:"MLflow", lines:["registry / tracking"], accent:"cyan" },
+        { title:"lakeFS", lines:["versioned data"], accent:"cyan" },
+        { title:"Harbor", lines:["image registry"], accent:"cyan" },
+      ]},
+      { label:"GITOPS & SECRETS", flow:false, boxes:[
+        { title:"GitHub Actions", lines:["build → registry"], accent:"violet" },
+        { title:"ArgoCD", lines:["app-of-apps sync"], accent:"violet" },
+        { title:"External Secrets", lines:["secret injection"], accent:"violet" },
+        { title:"Grafana / Prometheus", lines:["observability"], accent:"violet" },
+      ]},
+      { label:"RKE2 CLUSTER + STORAGE", flow:false, boxes:[
+        { title:"Control plane", lines:["K8s API"], accent:"amber" },
+        { title:"GPU workers", lines:["60+ heterogeneous"], accent:"amber" },
+        { title:"Service nodes", lines:["platform UIs"], accent:"amber" },
+        { title:"Object store + NFS", lines:["artifacts / data"], accent:"amber" },
+      ]},
+    ],
+    legend: [
+      "led scheduler & queue policy design",
+      "Scale-to-Zero serverless inference",
+      "dev/prod isolation (quota · priority)",
+      "GitOps: GitHub → registry → ArgoCD → cluster",
+    ],
+  },
+  {
+    file: "inferit.svg",
+    title: "Inferit — svnet3 Build & Distributed Inference",
+    subtitle: "config/artifact management · Ray fan-out across cluster GPUs · EDD",
+    rows: [{ boxes: [
+      { title:"Entry", lines:["Engineer / PRISM","EDD / MTBF / CLI"], accent:"cyan" },
+      { title:"Inferit BFF", lines:["FastAPI + Postgres","jobs · profiles · idem"], accent:"violet" },
+      { title:"Airflow svnet_inference", lines:["envelope fan-out","16-GPU cap"], accent:"cyan" },
+      { title:"K8s GPU pods", lines:["init → engine","→ sidecar"], accent:"green", emphasis:true },
+      { title:"Artifacts", lines:["lakeFS · Harbor","MLflow · Postgres"], accent:"amber" },
+      { title:"Callback", lines:["to caller"], accent:"cyan" },
+    ]}],
+    legend: [
+      "builds svnet3 across many configs",
+      "option-file / camera-param versioning",
+      "distributed/parallel: 6mo to 1.5mo",
+      "EDD evaluation integration",
+    ],
+  },
+  {
+    file: "prism.svg",
+    title: "PRISM — Jira-Driven ISP Conversion & Re-simulation",
+    subtitle: "event-driven · Terraform IaC · dual-version (issue + latest)",
+    rows: [{ boxes: [
+      { title:"Jira ticket", lines:["status change"], accent:"cyan" },
+      { title:"Webhook", lines:["FastAPI · ALB/TLS"], accent:"violet" },
+      { title:"SQS FIFO", lines:["dedup · DLQ"], accent:"amber" },
+      { title:"Lambda consumer", lines:["ordered per issue"], accent:"violet" },
+      { title:"Backend", lines:["versioned jobs","Postgres"], accent:"cyan" },
+      { title:"ISP conversion tool", lines:["in-house"], accent:"green" },
+      { title:"Airflow Resim DAG", lines:["dual-version"], accent:"green", emphasis:true },
+    ]}],
+    legend: [
+      "Phase 1 (ISP): deployed ~150/month",
+      "Phase 2 (Resim): in dev · technical lead",
+      "FIFO ordering per issue key",
+      "80% faster than manual",
+    ],
+  },
+  {
+    file: "mtbf-pipeline.svg",
+    title: "MTBF Validation — Large-Scale Reliability Pipeline",
+    subtitle: "release-gated svnet3 inference + AEB analysis at scale",
+    rows: [{ boxes: [
+      { title:"Command / ticket", lines:["validation request"], accent:"cyan" },
+      { title:"Airflow mtbf_validation", lines:["DAG orchestration"], accent:"violet" },
+      { title:"GPU pods", lines:["SVNet3 inference","KPO fan-out"], accent:"green", emphasis:true },
+      { title:"AEB evaluation", lines:["9 configs","3 TTC × 3 frames"], accent:"amber" },
+      { title:"Visual Inspection", lines:["+ Gemini assist"], accent:"cyan" },
+      { title:"PostgreSQL + dashboard", lines:["Redis cache"], accent:"cyan" },
+    ]}],
+    legend: [
+      "173,101 clips · 99.97% success",
+      "+205% throughput vs single machine",
+      "automation: single-person operation",
+      "Gemini auto-FP on Vertex AI (see GenAI)",
     ],
   },
 ];
