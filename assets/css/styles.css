@@ -133,6 +133,7 @@ section{ max-width:var(--maxw); margin:0 auto; padding:80px 28px; scroll-margin-
 .proj-body{ padding:16px 18px; display:flex; flex-direction:column; gap:9px;
   color:var(--muted); font-size:.88rem; border-top:1px solid var(--border); }
 .proj-body[hidden]{ display:none; }
+.proj.is-open{ grid-column:1 / -1; }   /* expanded card spans full width so the diagram is readable */
 
 /* ---------- ai-native ---------- */
 .ai-period{ font-size:.8rem; margin-bottom:20px; }
