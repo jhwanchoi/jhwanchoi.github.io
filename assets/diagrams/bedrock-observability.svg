@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" font-family="'JetBrains Mono',ui-monospace,monospace" role="img" aria-label="AWS Bedrock LLM cost and usage observability pipeline">
+  <defs>
+    <marker id="ahB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#475569"/>
+    </marker>
+    <style>
+      .bg{fill:#0b1020}
+      .box{fill:#131a2e;stroke:#1e293b;stroke-width:1.5}
+      .t{fill:#e2e8f0;font-size:13px;font-weight:700}
+      .s{fill:#94a3b8;font-size:10px}
+      .cap{fill:#64748b;font-size:10px}
+      .ttl{fill:#22d3ee;font-size:15px;font-weight:700}
+      .lab{fill:#cbd5e1;font-size:9.5px}
+      .arr{stroke:#475569;stroke-width:1.6;fill:none}
+      .chip{fill:#0f1626;stroke:#1e293b;stroke-width:1}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="820" height="360"/>
+  <text class="ttl" x="22" y="34">AWS Bedrock — LLM Cost &amp; Usage Observability</text>
+  <text class="cap" x="22" y="52">token-level cost-per-request attribution · 90%+ vs actual billing · Terraform IaC</text>
+
+  <!-- 1 invocations -->
+  <rect class="box" x="22" y="84" width="150" height="80" rx="10"/>
+  <rect x="22" y="84" width="5" height="80" rx="2.5" fill="#f59e0b"/>
+  <text class="t" x="38" y="112">Bedrock</text>
+  <text class="s" x="38" y="130">model invocations</text>
+  <text class="s" x="38" y="144">(multi-region)</text>
+
+  <!-- 2 logs -->
+  <rect class="box" x="202" y="84" width="150" height="80" rx="10"/>
+  <rect x="202" y="84" width="5" height="80" rx="2.5" fill="#22d3ee"/>
+  <text class="t" x="218" y="112">CloudWatch Logs</text>
+  <text class="s" x="218" y="130">invocation logs</text>
+  <text class="s" x="218" y="144">in/out/cache tokens</text>
+
+  <!-- 3 lambda -->
+  <rect x="382" y="78" width="156" height="92" rx="10" fill="#241a10" stroke="#f59e0b" stroke-width="1.8"/>
+  <text class="t" x="398" y="104" fill="#ffe2b0">Lambda (daily)</text>
+  <text class="s" x="398" y="122" fill="#f4c77e">Logs Insights queries</text>
+  <text class="s" x="398" y="136" fill="#f4c77e">parallel multi-region</text>
+  <text class="s" x="398" y="150" fill="#f4c77e">cost calc · pricing.json</text>
+
+  <!-- 4 metrics -->
+  <rect class="box" x="568" y="84" width="150" height="80" rx="10"/>
+  <rect x="568" y="84" width="5" height="80" rx="2.5" fill="#a78bfa"/>
+  <text class="t" x="584" y="112">Custom Metrics</text>
+  <text class="s" x="584" y="130">Custom/BedrockCost</text>
+  <text class="s" x="584" y="144">per model · per user</text>
+
+  <!-- EventBridge tag above lambda -->
+  <rect class="chip" x="392" y="50" width="136" height="20" rx="6"/>
+  <text class="lab" x="402" y="64">EventBridge cron (00:00)</text>
+  <path class="arr" d="M460 70 V76" marker-end="url(#ahB)"/>
+
+  <!-- arrows -->
+  <path class="arr" d="M172 124 H200" marker-end="url(#ahB)"/>
+  <path class="arr" d="M352 124 H380" marker-end="url(#ahB)"/>
+  <path class="arr" d="M538 124 H566" marker-end="url(#ahB)"/>
+
+  <!-- outputs -->
+  <path class="arr" d="M643 164 V200" marker-end="url(#ahB)"/>
+  <path class="arr" d="M643 200 H418 V200" marker-end="url(#ahB)"/>
+  <rect class="box" x="500" y="202" width="218" height="56" rx="10"/>
+  <rect x="500" y="202" width="5" height="56" rx="2.5" fill="#22d3ee"/>
+  <text class="t" x="516" y="226">CloudWatch Dashboard</text>
+  <text class="s" x="516" y="244">cost/token widgets · trends · top users</text>
+
+  <rect class="box" x="262" y="202" width="220" height="56" rx="10"/>
+  <rect x="262" y="202" width="5" height="56" rx="2.5" fill="#3fb950"/>
+  <text class="t" x="278" y="226">Slack daily report</text>
+  <text class="s" x="278" y="244">per region/model/team · budget flags</text>
+  <path class="arr" d="M610 258 V232 H482" marker-end="url(#ahB)"/>
+
+  <!-- annotation chips -->
+  <rect class="chip" x="22" y="300" width="210" height="26" rx="6"/>
+  <text class="lab" x="34" y="317">● cache-token pricing (0.1× / 1.25×)</text>
+  <rect class="chip" x="242" y="300" width="200" height="26" rx="6"/>
+  <text class="lab" x="254" y="317">● per-user IAM cost attribution</text>
+  <rect class="chip" x="452" y="300" width="180" height="26" rx="6"/>
+  <text class="lab" x="464" y="317">● org cost-optimization tool</text>
+</svg>

@@ -19,10 +19,10 @@
   <nav id="rail" aria-label="Section navigation">
     <a class="rail-logo" href="#home" aria-label="Home">JC</a>
     <a class="rail-link" href="#home" data-spy="home"><span class="rail-i">01</span><span data-i18n="nav.home">HOME</span></a>
-    <a class="rail-link" href="#work" data-spy="work"><span class="rail-i">02</span><span data-i18n="nav.work">WORK</span></a>
-    <a class="rail-link" href="#skills" data-spy="skills"><span class="rail-i">03</span><span data-i18n="nav.skills">SKILLS</span></a>
-    <a class="rail-link" href="#projects" data-spy="projects"><span class="rail-i">04</span><span data-i18n="nav.projects">PROJECTS</span></a>
-    <a class="rail-link" href="#ai" data-spy="ai"><span class="rail-i">05</span><span data-i18n="nav.ai">AI</span></a>
+    <a class="rail-link" href="#genai" data-spy="genai"><span class="rail-i">02</span><span data-i18n="nav.genai">GENAI</span></a>
+    <a class="rail-link" href="#work" data-spy="work"><span class="rail-i">03</span><span data-i18n="nav.work">WORK</span></a>
+    <a class="rail-link" href="#skills" data-spy="skills"><span class="rail-i">04</span><span data-i18n="nav.skills">SKILLS</span></a>
+    <a class="rail-link" href="#projects" data-spy="projects"><span class="rail-i">05</span><span data-i18n="nav.projects">PROJECTS</span></a>
     <button id="lang-toggle" class="rail-lang" aria-label="Toggle language">EN</button>
   </nav>
 
@@ -49,9 +49,59 @@
       </div>
     </section>
 
+    <!-- ============ GENAI ============ -->
+    <section id="genai">
+      <div class="section-index">02</div>
+      <h2 class="section-title" data-i18n="genai.title">Generative AI Engineering</h2>
+      <p class="muted mono ai-period" data-i18n="genai.sub">Production LLM on Vertex AI · LLM cost observability · RAG · agentic tooling</p>
+      <div class="genai-list">
+
+        <article class="genai-case card">
+          <div class="genai-head">
+            <span class="genai-name" data-i18n="genai.vertex.t">Gemini × Vertex AI — Production Multimodal Inference</span>
+            <span class="genai-metric mono" data-i18n="genai.vertex.m">in customer releases</span>
+          </div>
+          <div class="genai-tags"><span class="tag">Vertex AI</span><span class="tag">Gemini 2.5 Flash</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Airflow</span></div>
+          <p class="genai-desc" data-i18n="genai.vertex.d">A Gemini 2.5 Flash service on Vertex AI auto-classifies false positives on autonomous-driving vision inference.</p>
+          <img class="genai-diagram" src="assets/diagrams/vertex-gemini.svg" alt="Gemini on Vertex AI auto-FP detection pipeline" loading="lazy">
+        </article>
+
+        <article class="genai-case card">
+          <div class="genai-head">
+            <span class="genai-name" data-i18n="genai.bedrock.t">LLM Cost &amp; Usage Observability (AWS Bedrock)</span>
+            <span class="genai-metric mono" data-i18n="genai.bedrock.m">90%+ vs billing</span>
+          </div>
+          <div class="genai-tags"><span class="tag">AWS Bedrock</span><span class="tag">CloudWatch</span><span class="tag">Lambda</span><span class="tag">Terraform</span><span class="tag">Python</span></div>
+          <p class="genai-desc" data-i18n="genai.bedrock.d">Token-level cost-per-request attribution per model and team via CloudWatch and Slack.</p>
+          <img class="genai-diagram" src="assets/diagrams/bedrock-observability.svg" alt="AWS Bedrock LLM cost and usage observability pipeline" loading="lazy">
+        </article>
+
+        <article class="genai-case card">
+          <div class="genai-head">
+            <span class="genai-name" data-i18n="genai.rag.t">RAG Knowledge System (LLM Wiki)</span>
+            <span class="genai-metric mono" data-i18n="genai.rag.m">hybrid retrieval</span>
+          </div>
+          <div class="genai-tags"><span class="tag">Embeddings</span><span class="tag">Vector index</span><span class="tag">GitHub Actions</span><span class="tag">Claude Code</span></div>
+          <p class="genai-desc" data-i18n="genai.rag.d">Hybrid keyword + embedding retrieval with grounded, cited LLM answers over a Git/Markdown knowledge base.</p>
+          <img class="genai-diagram" src="assets/diagrams/rag-wiki.svg" alt="RAG knowledge wiki hybrid retrieval and grounded synthesis" loading="lazy">
+        </article>
+
+        <article class="genai-case card">
+          <div class="genai-head">
+            <span class="genai-name" data-i18n="genai.agentic.t">Agentic LLM Tooling</span>
+            <span class="genai-metric mono" data-i18n="genai.agentic.m">tool-use + guardrails</span>
+          </div>
+          <div class="genai-tags"><span class="tag">Claude Code</span><span class="tag">MCP</span><span class="tag">Skills</span><span class="tag">Python/Bash</span></div>
+          <p class="genai-desc" data-i18n="genai.agentic.d">Natural-language intent invokes ops tools with multi-step orchestration and guardrails; plus a multi-model self-critique workflow.</p>
+        </article>
+
+      </div>
+      <p class="genai-evangelism muted" data-i18n="genai.evangelism">Also: internal AI-driven development evangelism, and n8n automation prototypes.</p>
+    </section>
+
     <!-- ============ WORK ============ -->
     <section id="work">
-      <div class="section-index">02</div>
+      <div class="section-index">03</div>
       <h2 class="section-title" data-i18n="work.title">Experience</h2>
       <div class="timeline">
         <article class="tl-item">
@@ -80,7 +130,7 @@
 
     <!-- ============ SKILLS ============ -->
     <section id="skills">
-      <div class="section-index">03</div>
+      <div class="section-index">04</div>
       <h2 class="section-title" data-i18n="skills.title">Skills</h2>
       <div class="skill-grid">
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.languages">Languages</span><span class="chips" data-cat="languages">Python · C++ · TypeScript</span></div>
@@ -98,7 +148,7 @@
 
     <!-- ============ PROJECTS ============ -->
     <section id="projects">
-      <div class="section-index">04</div>
+      <div class="section-index">05</div>
       <h2 class="section-title" data-i18n="projects.title">Selected Projects</h2>
       <div class="proj-grid">
 
@@ -174,18 +224,6 @@
     </section>
 
     <!-- ============ AI-NATIVE ============ -->
-    <section id="ai">
-      <div class="section-index">05</div>
-      <h2 class="section-title" data-i18n="ai.title">AI-Native Development</h2>
-      <p class="muted mono ai-period" data-i18n="ai.sub">2025 – Present</p>
-      <div class="ai-grid">
-        <div class="ai-card card"><h3 data-i18n="ai.llmwiki.t">LLM Wiki</h3><p data-i18n="ai.llmwiki.d">Git + Markdown MLOps ops-knowledge system (NL authoring, search, Q&amp;A, quality lint, sync) — turned scattered knowledge into a team asset.</p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.debate.t">Multi-Model Debate</h3><p data-i18n="ai.debate.d">Claude/GPT/Gemini draft → critique → third-party review → synthesize, raising reliability for design reviews. (github.com/jhwanchoi/dotfiles)</p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.bedrock.t">Bedrock Observability</h3><p data-i18n="ai.bedrock.d">CloudWatch dashboard + Slack alerts for in-house LLM usage/cost visibility.</p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.plugin.t">Cluster-ops Plugin</h3><p data-i18n="ai.plugin.d">MLOps cluster ops utilities (diagnostics, storage) exposed as slash commands.</p></div>
-        <div class="ai-card card"><h3 data-i18n="ai.evangelism.t">Evangelism</h3><p data-i18n="ai.evangelism.d">Hosted internal AI-driven development meetings; shared modern AI tooling trends (Claude Code, Gemini CLI, Codex; MCP/Plugin/Skill).</p></div>
-      </div>
-    </section>
   </main>
 
   <footer id="site-footer">

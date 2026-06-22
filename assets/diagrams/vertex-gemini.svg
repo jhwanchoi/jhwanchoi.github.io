@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" font-family="'JetBrains Mono',ui-monospace,monospace" role="img" aria-label="Gemini on Vertex AI auto false-positive detection pipeline">
+  <defs>
+    <marker id="ahG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#475569"/>
+    </marker>
+    <style>
+      .bg{fill:#0b1020}
+      .box{fill:#131a2e;stroke:#1e293b;stroke-width:1.5;rx:10}
+      .t{fill:#e2e8f0;font-size:13px;font-weight:700}
+      .s{fill:#94a3b8;font-size:10px}
+      .cap{fill:#64748b;font-size:10px}
+      .ttl{fill:#22d3ee;font-size:15px;font-weight:700}
+      .lab{fill:#cbd5e1;font-size:9.5px}
+      .arr{stroke:#475569;stroke-width:1.6;fill:none}
+      .chip{fill:#0f1626;stroke:#1e293b;stroke-width:1;rx:6}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="820" height="360"/>
+  <text class="ttl" x="22" y="34">Gemini × Vertex AI — Auto-FP Detection (production)</text>
+  <text class="cap" x="22" y="52">autonomous-driving vision inference → multimodal LLM classification</text>
+
+  <!-- stage 1 -->
+  <rect class="box" x="22" y="80" width="150" height="78" rx="10"/>
+  <rect x="22" y="80" width="5" height="78" rx="2.5" fill="#a78bfa"/>
+  <text class="t" x="38" y="108">Airflow DAG</text>
+  <text class="s" x="38" y="126">SVNet3 inference</text>
+  <text class="s" x="38" y="140">(GPU workers)</text>
+
+  <!-- stage 2 -->
+  <rect class="box" x="202" y="80" width="150" height="78" rx="10"/>
+  <rect x="202" y="80" width="5" height="78" rx="2.5" fill="#22d3ee"/>
+  <text class="t" x="218" y="108">Frames + meta</text>
+  <text class="s" x="218" y="126">JPEG + AEB/TTC</text>
+  <text class="s" x="218" y="140">→ S3 / HCP</text>
+
+  <!-- stage 3 (emphasis) -->
+  <rect x="382" y="74" width="156" height="90" rx="10" fill="#10241f" stroke="#3fb950" stroke-width="1.8"/>
+  <text class="t" x="398" y="100" fill="#d6ffe6">Vertex AI</text>
+  <text class="t" x="398" y="118" fill="#d6ffe6">Gemini 2.5 Flash</text>
+  <text class="s" x="398" y="136" fill="#7ee2a8">image + metadata</text>
+  <text class="s" x="398" y="150" fill="#7ee2a8">+ inspection manual</text>
+
+  <!-- stage 4 -->
+  <rect class="box" x="568" y="80" width="150" height="78" rx="10"/>
+  <rect x="568" y="80" width="5" height="78" rx="2.5" fill="#f59e0b"/>
+  <text class="t" x="584" y="104">Structured JSON</text>
+  <text class="s" x="584" y="122">FP/TP · confidence</text>
+  <text class="s" x="584" y="136">· reasoning (schema)</text>
+
+  <!-- arrows row -->
+  <path class="arr" d="M172 119 H200" marker-end="url(#ahG)"/>
+  <path class="arr" d="M352 119 H380" marker-end="url(#ahG)"/>
+  <path class="arr" d="M538 119 H566" marker-end="url(#ahG)"/>
+
+  <!-- down to persistence -->
+  <path class="arr" d="M643 158 V196" marker-end="url(#ahG)"/>
+  <rect class="box" x="568" y="198" width="150" height="56" rx="10"/>
+  <rect x="568" y="198" width="5" height="56" rx="2.5" fill="#22d3ee"/>
+  <text class="t" x="584" y="222">PostgreSQL</text>
+  <text class="s" x="584" y="240">→ stats dashboard</text>
+
+  <!-- FastAPI orchestrator band -->
+  <rect x="202" y="198" width="336" height="56" rx="10" fill="#131a2e" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="202" y="198" width="5" height="56" rx="2.5" fill="#22d3ee"/>
+  <text class="t" x="218" y="222">FastAPI background tasks</text>
+  <text class="s" x="218" y="240">batched async · deduplication (~40% fewer calls) · status lifecycle</text>
+  <path class="arr" d="M460 198 V166" marker-end="url(#ahG)"/>
+  <path class="arr" d="M568 226 H540" marker-end="url(#ahG)"/>
+
+  <!-- annotation chips -->
+  <rect class="chip" x="22" y="290" width="168" height="26" rx="6"/>
+  <text class="lab" x="34" y="307">● per-request token tracking</text>
+  <rect class="chip" x="200" y="290" width="170" height="26" rx="6"/>
+  <text class="lab" x="212" y="307">● JSON-schema structured output</text>
+  <rect class="chip" x="380" y="290" width="158" height="26" rx="6"/>
+  <text class="lab" x="392" y="307">● human-in-the-loop (decides)</text>
+  <rect class="chip" x="548" y="290" width="170" height="26" rx="6"/>
+  <text class="lab" x="560" y="307">● real customer-release eval</text>
+</svg>
