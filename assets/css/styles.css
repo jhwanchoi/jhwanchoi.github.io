@@ -134,6 +134,7 @@ section{ max-width:var(--maxw); margin:0 auto; padding:80px 28px; scroll-margin-
   color:var(--muted); font-size:.88rem; border-top:1px solid var(--border); }
 .proj-body[hidden]{ display:none; }
 .proj.is-open{ grid-column:1 / -1; }   /* expanded card spans full width so the diagram is readable */
+.proj[id], #mlops-platform{ scroll-margin-top:24px; }   /* deep-link landing offset */
 
 /* ---------- ai-native ---------- */
 .ai-period{ font-size:.8rem; margin-bottom:20px; }

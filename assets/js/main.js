@@ -54,6 +54,14 @@ function initSpy(){
 }
 
 /* ---- expandable project cards ---- */
+function setCardOpen(card, open){
+  const head = card.querySelector(".proj-head");
+  const body = card.querySelector(".proj-body");
+  if(!head || !body) return;
+  head.setAttribute("aria-expanded", String(open));
+  body.hidden = !open;
+  card.classList.toggle("is-open", open);
+}
 function initCards(){
   document.querySelectorAll("[data-project]").forEach(card=>{
     const head = card.querySelector(".proj-head");
@@ -61,11 +69,21 @@ function initCards(){
     if(!head || !body) return;
     head.addEventListener("click", ()=>{
       const open = head.getAttribute("aria-expanded") === "true";
-      head.setAttribute("aria-expanded", String(!open));
-      body.hidden = open;
-      card.classList.toggle("is-open", !open);
+      setCardOpen(card, !open);
+      // reflect the open card in the URL so it's deep-linkable/shareable
+      if(!open && card.id){ try{ history.replaceState(null, "", "#" + card.id); }catch(e){} }
     });
   });
+}
+
+/* ---- deep links: open + scroll to a card/section from the URL hash ---- */
+function openFromHash(){
+  const id = decodeURIComponent((location.hash || "").slice(1));
+  if(!id) return;
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(el.hasAttribute("data-project")) setCardOpen(el, true);
+  requestAnimationFrame(()=> el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }));
 }
 
 /* ---- count-up on scroll for numeric-leading metrics ---- */
@@ -113,4 +131,6 @@ function retype(){
 
 window.addEventListener("DOMContentLoaded", ()=>{
   initLang(); initSkills(); initSpy(); initCards(); initCounters(); retype();
+  openFromHash();
 });
+window.addEventListener("hashchange", openFromHash);
