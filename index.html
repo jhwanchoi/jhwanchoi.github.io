@@ -64,7 +64,17 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="genai-vertex-body" class="proj-body" hidden>
-            <p class="genai-desc" data-i18n="genai.vertex.d">A Gemini 2.5 Flash service on Vertex AI auto-classifies false positives on autonomous-driving vision inference.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.highlights">Highlights</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="gv.1k">Vertex AI · Gemini 2.5 Flash</span><p data-i18n="gv.1">Multimodal service (vertexai=True): image frames + structured metadata + an inspection manual.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.2k">Structured output</span><p data-i18n="gv.2">Enforced JSON schema — FP/TP, category, confidence, and step-by-step reasoning.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.3k">Batched async + dedup</span><p data-i18n="gv.3">Per-request token tracking; batched async processing with deduplication (~40% fewer API calls).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.4k">Human-in-the-loop</span><p data-i18n="gv.4">Model assists, human makes the final call — running in real customer-release evaluation (MTBF).</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/vertex-gemini.svg" alt="Gemini on Vertex AI auto-FP detection pipeline" loading="lazy">
           </div>
         </article>
@@ -77,7 +87,17 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="genai-bedrock-body" class="proj-body" hidden>
-            <p class="genai-desc" data-i18n="genai.bedrock.d">Token-level cost-per-request attribution per model and team via CloudWatch and Slack.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.highlights">Highlights</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="bd.1k">Token-level cost</span><p data-i18n="bd.1">Input/output/cache tokens tracked; cost-per-request from pricing.json (incl. cache-token multipliers).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="bd.2k">Per-model / per-team</span><p data-i18n="bd.2">Cost attribution across models and teams via CloudWatch Logs Insights.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="bd.3k">CloudWatch + Slack · IaC</span><p data-i18n="bd.3">Daily multi-region Lambda → custom metrics + dashboard + Slack report; deployed as Terraform IaC.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="bd.4k">90%+ accuracy</span><p data-i18n="bd.4">Within 90%+ of actual billing; adopted as an org-level cost-optimization decision tool.</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/bedrock-observability.svg" alt="AWS Bedrock LLM cost and usage observability pipeline" loading="lazy">
             <div class="shots">
               <img class="shot" src="assets/screenshots/bedrock-dashboard.png" alt="CloudWatch Bedrock usage dashboard: invocations, cost, tokens, pricing" loading="lazy">
@@ -95,7 +115,17 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="genai-rag-body" class="proj-body" hidden>
-            <p class="genai-desc" data-i18n="genai.rag.d">Hybrid keyword + embedding retrieval with grounded, cited LLM answers over a Git/Markdown knowledge base.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.highlights">Highlights</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="rg.1k">Hybrid retrieval</span><p data-i18n="rg.1">grep field-scoring + embedding cosine top-k, with synonym expansion.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="rg.2k">Embedding index</span><p data-i18n="rg.2">text-embedding-3-small vector index (.npy), CI-rebuilt on every docs push.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="rg.3k">Grounded synthesis</span><p data-i18n="rg.3">Context injection → answers with citations and freshness/uncertainty signals.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="rg.4k">Git + Markdown</span><p data-i18n="rg.4">Knowledge base versioned in Git; grep-only offline fallback.</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/rag-wiki.svg" alt="RAG knowledge wiki hybrid retrieval and grounded synthesis" loading="lazy">
           </div>
         </article>
@@ -108,7 +138,17 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="genai-agentic-body" class="proj-body" hidden>
-            <p class="genai-desc" data-i18n="genai.agentic.d">Natural-language intent invokes ops tools with multi-step orchestration and guardrails; plus a multi-model self-critique workflow.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.highlights">Highlights</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="ag.1k">Tool-use</span><p data-i18n="ag.1">Natural-language intent → invokes cluster diagnostics/storage tools (Claude Code Skills).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="ag.2k">Multi-step orchestration</span><p data-i18n="ag.2">Node-onboarding workflow with guardrails (dry-run, rollback, confirmation gates).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="ag.3k">Human-in-the-loop</span><p data-i18n="ag.3">Confirmation gates before any state-changing action.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="ag.4k">Multi-model self-critique</span><p data-i18n="ag.4">Claude → GPT → Gemini: draft → critique → third-party review → synthesize.</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/multi-model-debate.svg" alt="Multi-model debate workflow: Claude draft, GPT critique, Gemini review and synthesis" loading="lazy">
             <div class="shots">
               <img class="shot" src="assets/screenshots/agentic-storage.png" alt="Cluster-ops Claude plugin: natural-language storage query invoking diagnostic tools" loading="lazy">
@@ -312,7 +352,31 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-wls-body" class="proj-body" hidden>
-            <p data-i18n="proj.wls.d1">Collected/analyzed 80M daily labeling-log events to prevent ~₩100M/month in overbilling (settlement-audit confirmed); findings fed UI/UX improvements and the ALAS model (+20% labeling efficiency).</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.problem">Problem</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="wls.p1k">No workload analysis</span><p data-i18n="wls.p1">No system existed for analyzing labeler workloads.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="wls.p2k">Settlement errors &amp; overbilling</span><p data-i18n="wls.p2">Manual verification errors during outsourcing settlement; excess cost from abnormal workloads.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="wls.s1k">Large-scale log pipeline</span><p data-i18n="wls.s1">Collected logs via AWS SQS; stored/analyzed 80M events/day in MongoDB (Atlas migration with sharding/replicas for write stability).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="wls.s2k">State-machine analysis</span><p data-i18n="wls.s2">30+ states (Idle/Active/Paused/Reviewing/AFK…) to detect abnormal patterns — repeated edits, time logged while inactive.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="wls.s3k">Settlement automation</span><p data-i18n="wls.s3">Per-vendor / per-feature (OD, SOD, TSTLD, RMD) cost via $group/$unwind/$lookup aggregation; insights fed UI/UX + the ALAS model.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.outcome">Outcomes</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="wls.o1k">₩100M/mo prevented</span><p data-i18n="wls.o1">~₩100M/month overbilling prevented (settlement-audit confirmed; ~₩600M cumulative in H1 2024).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="wls.o2k">80M events/day</span><p data-i18n="wls.o2">80M labeling-log events processed daily.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="wls.o3k">+20% efficiency</span><p data-i18n="wls.o3">Labeling efficiency +20% from log-analysis-driven UI/UX improvements, linked to ALAS.</p></div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -325,7 +389,28 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-alas-body" class="proj-body" hidden>
-            <p data-i18n="proj.alas.d1">Auto-labeling microservice reducing manual annotation ~35%; ECS→EKS migration, CDK-based IaC.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.problem">Problem</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="alas.p1k">Labeler workload</span><p data-i18n="alas.p1">Excessive labeler workload (bottlenecks identified via WLS log analysis); needed multi-model support.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="alas.s1k">Microservice + fan-out</span><p data-i18n="alas.s1">FastAPI service with AWS SNS → multiple SQS fan-out for concurrent multi-model inference (timeout set to the slowest model).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="alas.s2k">ECS → EKS · IaC</span><p data-i18n="alas.s2">Migrated ECS → EKS into the in-house Kubernetes cluster for shared GPU; CDK for the infra layer, Helm for the service.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="alas.s3k">Model support</span><p data-i18n="alas.s3">Ground Fitting OD/FSD, Occlusion Score.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.outcome">Outcomes</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="alas.o1k">−35% manual work</span><p data-i18n="alas.o1">~35% reduction in manual annotation workload via auto object generation.</p></div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
