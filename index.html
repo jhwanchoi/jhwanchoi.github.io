@@ -43,7 +43,7 @@
         <div class="metrics">
           <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.saved.v">₩448M</div><div class="metric-l" data-i18n="metric.saved.l">SAVED VS AWS</div></div>
           <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.valid.v">6mo→1.5mo</div><div class="metric-l" data-i18n="metric.valid.l">VALIDATION TIME</div></div>
-          <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.success.v">99.97%</div><div class="metric-l" data-i18n="metric.success.l">SUCCESS RATE</div></div>
+          <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.success.v">99.87%</div><div class="metric-l" data-i18n="metric.success.l">SUCCESS RATE</div></div>
           <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.events.v">80M/day</div><div class="metric-l" data-i18n="metric.events.l">LOG EVENTS</div></div>
         </div>
       </div>
@@ -178,13 +178,41 @@
           <button class="proj-head" aria-expanded="false" aria-controls="proj-inferit-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.inferit.name">Inferit</span>
               <span class="proj-metric mono" data-i18n="proj.inferit.metric">6mo → 1.5mo</span></div>
+            <span class="status-badge st-pilot" data-i18n="status.pilot">Pilot</span>
             <span class="proj-sub" data-i18n="proj.inferit.sub">svnet3 build/inference acceleration</span>
             <span class="proj-tags"><span class="tag">Ray</span><span class="tag">MLflow</span><span class="tag">lakeFS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-inferit-body" class="proj-body" hidden>
-            <p data-i18n="proj.inferit.d1">Distributed/parallelized single-machine inference across cluster GPUs → cut a 20,000-hour validation from 6+ months to 1.5 months.</p>
-            <p data-i18n="proj.inferit.d2">Versioned customer option files, eliminating 1–2 days of engineer↔PM communication; 5+ major versions; per-ticket auto-inference (OD/LD/TSR/TLR); integrated Evaluation Driven Development.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.problem">Problem</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.p1k">Fragmented build args</span><p data-i18n="inferit.p1">svnet3 (in-house AD vision model) build arguments were fragmented across SW versions, making automation hard.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.p2k">Unmanaged option files</span><p data-i18n="inferit.p2">Customer option files (camera parameters) on tickets weren't managed systematically — time wasted finding who had them and where.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.p3k">Single-machine limit</span><p data-i18n="inferit.p3">Single-machine inference took too long for large-scale validation / re-inference.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.p4k">Manual evaluation</span><p data-i18n="inferit.p4">Evaluation outputs were copy-pasted by hand with no version tracking.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.s1k">Build &amp; artifact mgmt</span><p data-i18n="inferit.s1">Version/config/artifact management for building svnet3 across configs; dual Docker images (internal vs customer) with a unified entrypoint + ini templates.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.s2k">Option-file versioning</span><p data-i18n="inferit.s2">Versioned customer option files, eliminating 1–2 days of engineer↔PM search/communication.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.s3k">Distributed inference</span><p data-i18n="inferit.s3">Parallelized single-machine inference across cluster GPUs — acceleration proportional to GPUs per node.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.s4k">Evaluation-Driven Dev</span><p data-i18n="inferit.s4">Evaluation-Driven Development: auto-logged metrics to MLflow; versioned 256GB+ eval data via lakeFS (Git-like commit/branch).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.s5k">Tech rationale</span><p data-i18n="inferit.s5">lakeFS (Git-like branching + S3/HCP-compatible, vs DVC); MLflow (open-source, in-house deployable, vs W&amp;B).</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.outcome">Outcomes</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.o1k">Inference acceleration</span><p data-i18n="inferit.o1">20,000-hour validation: estimated 6+ months → 1.5 months vs a single machine.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.o2k">Search load removed</span><p data-i18n="inferit.o2">Customer option-file versioning removed 1–2 days of communication per ticket.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.o3k">Version compatibility</span><p data-i18n="inferit.o3">5+ major release versions supported; automated inference per customer issue ticket.</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/inferit.svg" alt="Inferit svnet3 build and distributed inference architecture" loading="lazy">
           </div>
         </article>
@@ -192,14 +220,44 @@
         <article id="mtbf" class="proj card" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-mtbf-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.mtbf.name">MTBF Validation</span>
-              <span class="proj-metric mono" data-i18n="proj.mtbf.metric">173,101 clips · 99.97%</span></div>
+              <span class="proj-metric mono" data-i18n="proj.mtbf.metric">430,851 clips · 99.87%</span></div>
+            <span class="status-badge st-operating" data-i18n="status.operating">Operating</span>
             <span class="proj-sub" data-i18n="proj.mtbf.sub">Large-scale reliability validation</span>
             <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">PostgreSQL</span><span class="tag">HCP Object Storage</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-mtbf-body" class="proj-body" hidden>
-            <p data-i18n="proj.mtbf.d1">Runs svnet3 inference on customer-ODD data before/after release, detecting FP &amp; AEB flags; 205% higher throughput and 67.3% lower processing time vs a single machine.</p>
-            <p data-i18n="proj.mtbf.d2">Proposed &amp; executed a Cloud→On-Premise transition: AWS ₩820M → On-Prem ₩370M (55% saved). Automation enables single-person operation of large-scale validation.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.problem">Problem</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.p1k">PB-scale validation</span><p data-i18n="mtbf.p1">20,000 hours of driving video (PB-scale) needed MTBF validation; mixed resolutions (2/3/8MP) and clip lengths (30s–5min) made resource estimation hard.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.p2k">Limited compute &amp; deadline</span><p data-i18n="mtbf.p2">Limited compute and budget with a short completion deadline.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.p3k">No longer deferrable</span><p data-i18n="mtbf.p3">Only small-scale validation had been feasible; large-scale validation could no longer be deferred.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s1k">Distributed pipeline</span><p data-i18n="mtbf.s1">Accelerated with Inferit's distributed inference; automated the Build → Inference → KPI pipeline via Airflow DAGs with a 7-type data validation suite.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s2k">Monitoring + Visual Inspection</span><p data-i18n="mtbf.s2">Real-time dashboard + Visual Inspection UI (video/stats around flagged frames); Gemini-assisted review to cut repetitive checks — humans make the final call.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s3k">Cloud → On-Premise</span><p data-i18n="mtbf.s3">Cost-analysis-driven On-Premise transition; ran GPU hardware benchmarks &amp; spec proposals; leveraged HCP Object Storage (one-time vs recurring S3).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s4k">60+ GPU cluster ops</span><p data-i18n="mtbf.s4">Operated 60+ GPUs on Rancher-based Kubernetes; balanced scheduling via nodeSelector + per-GPU tolerations; guaranteed job priority via ResourceQuota + PriorityClass.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.outcome">Outcomes</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o1k">Scale &amp; reliability</span><p data-i18n="mtbf.o1">430,851 clips analyzed at a 99.87% success rate (15,233h of driving footage, cumulative as of Jun 2026).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o2k">Throughput &amp; time</span><p data-i18n="mtbf.o2">+205% throughput and 67.3% lower processing time vs a single machine (est. 6+ months → 1.5 months).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o3k">Cost saved</span><p data-i18n="mtbf.o3">AWS ₩820M → On-Premise ₩370M (55% saved).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o4k">1-person operation</span><p data-i18n="mtbf.o4">Automation enabled large-scale validation to be operated by a single person.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o5k">Compute scale</span><p data-i18n="mtbf.o5">66,864 GPU-hours (~7.6 years of compute) run across the cluster.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o6k">Detection quality</span><p data-i18n="mtbf.o6">43,116 AEB candidates surfaced with only ~10 real false positives (~1 per 5,000h).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o7k">Model improvement</span><p data-i18n="mtbf.o7">On a fixed validation set, FP dropped 263 → 92 → 9 across SW versions — quantifying continuous model improvement.</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/mtbf-pipeline.svg" alt="MTBF large-scale reliability validation pipeline architecture" loading="lazy">
           </div>
         </article>
@@ -207,14 +265,40 @@
         <article id="prism" class="proj card" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-prism-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.prism.name">PRISM</span>
-              <span class="proj-metric mono" data-i18n="proj.prism.metric">~150 req/mo · 80% faster</span></div>
+              <span class="proj-metric mono" data-i18n="proj.prism.metric">event-driven · Resim</span></div>
+            <span class="status-badge st-preparing" data-i18n="status.preparing">Preparing</span>
             <span class="proj-sub" data-i18n="proj.prism.sub">Jira-integrated ISP conversion</span>
             <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">AWS SQS</span><span class="tag">Lambda</span><span class="tag">Terraform</span><span class="tag">Airflow</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-prism-body" class="proj-body" hidden>
-            <p data-i18n="proj.prism.d1">Phase 1 (operating): event-driven ISP conversion via Jira Webhook → SQS → Lambda; ~150 requests/month, 80% faster than manual.</p>
-            <p data-i18n="proj.prism.d2">Phase 2 (Resim, in dev): did initial development, now technical lead supporting a developer from another org; dual-version (issue + latest) inference via Airflow DAG.</p>
+            <div class="case">
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.problem">Problem</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="prism.p1k">Manual ISP requests</span><p data-i18n="prism.p1">Customer Jira-ticket ISP conversion requests were handled manually.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.p2k">Status tracking</span><p data-i18n="prism.p2">Conversion status was hard to track.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.p3k">No Resim linkage</span><p data-i18n="prism.p3">No linkage with re-simulation work.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="prism.s1k">Event-driven</span><p data-i18n="prism.s1">Jira Webhook → SQS → Lambda async processing; Slack notifications on status change + a processing-history dashboard (SQS FIFO dedup for duplicate events).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.s2k">Infra as Code</span><p data-i18n="prism.s2">Provisioned VPC / EC2 / SQS / Lambda via Terraform with dev/prod separation.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.s3k">Integrations</span><p data-i18n="prism.s3">In-house ISP conversion tool via callback status updates (retry + Slack alert after 3 failures); inference requests to Inferit with result history.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.s4k">Resim — technical lead</span><p data-i18n="prism.s4">Phase 2 (in dev): did the initial development, now technical lead supporting a developer from another org; Airflow-DAG auto-trigger of dual-version (issue + latest) Re-simulation; results auto-posted as Jira comments.</p></div>
+                </div>
+              </div>
+              <div class="case-sec">
+                <span class="case-label" data-i18n="case.outcome">Outcomes</span>
+                <div class="kw-list">
+                  <div class="kw-card"><span class="kw" data-i18n="prism.o1k">Connectivity verified</span><p data-i18n="prism.o1">Connectivity test completed against a customer baseline; full deployment to follow the Inferit rollout.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.o2k">~80% faster (design)</span><p data-i18n="prism.o2">Designed to automate ISP conversion ~80% faster than the manual process (~150 requests/month target).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="prism.o3k">Phase 2 (tech lead)</span><p data-i18n="prism.o3">Re-simulation pipeline in development as technical lead, with dual-version inference.</p></div>
+                </div>
+              </div>
+            </div>
             <img class="genai-diagram" src="assets/diagrams/prism.svg" alt="PRISM Jira-driven ISP conversion and re-simulation architecture" loading="lazy">
           </div>
         </article>

@@ -133,6 +133,22 @@ section{ max-width:var(--maxw); margin:0 auto; padding:80px 28px; scroll-margin-
 .proj-body{ padding:16px 18px; display:flex; flex-direction:column; gap:9px;
   color:var(--muted); font-size:.88rem; border-top:1px solid var(--border); }
 .proj-body[hidden]{ display:none; }
+.case{ display:flex; flex-direction:column; gap:20px; margin-bottom:4px; }
+.case-label{ display:inline-block; font-size:.98rem; font-weight:800; letter-spacing:.01em;
+  color:var(--cyan); margin-bottom:11px; }
+.kw-list{ display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+.kw-card{ background:var(--surface-2); border:1px solid var(--border); border-radius:9px; padding:11px 13px;
+  transition:border-color .2s; }
+.kw-card:hover{ border-color:var(--cyan); }
+.kw{ display:block; font-weight:700; color:var(--text); font-size:.86rem; margin-bottom:4px; }
+.kw-card p{ color:var(--muted); font-size:.82rem; line-height:1.5; }
+@media (max-width:768px){ .kw-list{ grid-template-columns:1fr; } }
+.status-badge{ align-self:flex-start; font-family:var(--mono); font-size:.62rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; padding:2px 9px; border-radius:999px; border:1px solid; }
+.st-operating{ color:#3fb950; border-color:#3fb95066; background:#3fb9501a; }
+.st-pilot{ color:#a78bfa; border-color:#a78bfa66; background:#a78bfa1a; }
+.st-preparing{ color:#f59e0b; border-color:#f59e0b66; background:#f59e0b1a; }
+.st-design{ color:#22d3ee; border-color:#22d3ee66; background:#22d3ee1a; }
 .proj.is-open{ grid-column:1 / -1; }   /* expanded card spans full width so the diagram is readable */
 .proj[id], #mlops-platform{ scroll-margin-top:24px; }   /* deep-link landing offset */
 
