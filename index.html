@@ -171,11 +171,13 @@
             <span class="tl-meta"><span data-i18n="work.sv.role">Software Engineer</span> · <span data-i18n="work.sv.date">Jul 2022 – Present</span></span>
           </header>
           <h3 id="mlops-platform" class="tl-sub" data-i18n="work.sv.mlops.h">MLOps Platform</h3>
-          <ul>
-            <li data-i18n="work.sv.mlops.b1">Co-designed a shared GPU cluster on RKE2 Kubernetes (60+ heterogeneous GPUs); led scheduler &amp; queue policy design; integrated 15+ MLOps components (Ray/KubeRay, MLflow, Airflow, ArgoCD, KServe, Harbor).</li>
-            <li data-i18n="work.sv.mlops.b2">Sole ownership of the inference/evaluation workflow (SVEvalFlow): Inferit, MTBF, PRISM.</li>
-            <li data-i18n="work.sv.mlops.b3">Built 3 CI/CD pipelines (GitHub Actions + ArgoCD) and Scale-to-Zero serverless inference (KServe/Knative) to cut idle GPU cost.</li>
-          </ul>
+          <div class="kw-list">
+            <div class="kw-card"><span class="kw" data-i18n="mp.1k">Shared GPU cluster (co-design)</span><p data-i18n="mp.1">RKE2 Kubernetes, 60+ heterogeneous GPUs; co-designed with another engineer, led scheduler &amp; queue-policy design.</p></div>
+            <div class="kw-card"><span class="kw" data-i18n="mp.2k">SVEvalFlow ownership</span><p data-i18n="mp.2">Sole owner of the inference/evaluation workflow — Inferit, MTBF Validation, PRISM.</p></div>
+            <div class="kw-card"><span class="kw" data-i18n="mp.3k">15+ MLOps components</span><p data-i18n="mp.3">Integrated Ray/KubeRay, KServe/Knative, MLflow, Airflow, ArgoCD, Harbor, lakeFS.</p></div>
+            <div class="kw-card"><span class="kw" data-i18n="mp.4k">CI/CD + GitOps</span><p data-i18n="mp.4">3 CI/CD pipelines (GitHub Actions → registry → ArgoCD); Scale-to-Zero serverless inference to cut idle GPU cost.</p></div>
+            <div class="kw-card"><span class="kw" data-i18n="mp.5k">Inference scheduler</span><p data-i18n="mp.5">Introduced an inference-priority scheduler with dev/prod isolation (quota, priority class).</p></div>
+          </div>
           <img class="genai-diagram tl-diagram" src="assets/diagrams/mlops-platform.svg" alt="Shared GPU cluster MLOps platform and SVEvalFlow layered architecture" loading="lazy">
           <h3 class="tl-sub" data-i18n="work.sv.data.h">Data &amp; Labeling Automation (2022 – 2025)</h3>
           <ul><li data-i18n="work.sv.data.b1">Log-analysis, auto-labeling, and ingestion services (WLS, ALAS, IGS, SURF, RNS, SLT) — see Projects.</li></ul>
@@ -214,7 +216,7 @@
       <h2 class="section-title" data-i18n="projects.title">Selected Projects</h2>
       <div class="proj-grid">
 
-        <article id="inferit" class="proj card" data-project>
+        <article id="inferit" class="proj card c-violet" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-inferit-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.inferit.name">Inferit</span>
               <span class="proj-metric mono" data-i18n="proj.inferit.metric">6mo → 1.5mo</span></div>
@@ -257,7 +259,7 @@
           </div>
         </article>
 
-        <article id="mtbf" class="proj card" data-project>
+        <article id="mtbf" class="proj card c-green" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-mtbf-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.mtbf.name">MTBF Validation</span>
               <span class="proj-metric mono" data-i18n="proj.mtbf.metric">430,851 clips · 99.87%</span></div>
@@ -267,6 +269,14 @@
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-mtbf-body" class="proj-body" hidden>
+            <div class="stat-row">
+              <div class="stat"><div class="stat-v mono">430,851</div><div class="stat-l" data-i18n="mtile.clips">CLIPS</div></div>
+              <div class="stat"><div class="stat-v mono">99.87%</div><div class="stat-l" data-i18n="mtile.success">SUCCESS</div></div>
+              <div class="stat"><div class="stat-v mono">15,233h</div><div class="stat-l" data-i18n="mtile.footage">FOOTAGE</div></div>
+              <div class="stat"><div class="stat-v mono">66,864</div><div class="stat-l" data-i18n="mtile.gpu">GPU-HOURS</div></div>
+              <div class="stat"><div class="stat-v mono">≈10</div><div class="stat-l" data-i18n="mtile.fp">REAL FP</div></div>
+              <div class="stat"><div class="stat-v mono">263→9</div><div class="stat-l" data-i18n="mtile.trend">FP v31→v33</div></div>
+            </div>
             <div class="case">
               <div class="case-sec">
                 <span class="case-label" data-i18n="case.problem">Problem</span>
@@ -302,7 +312,7 @@
           </div>
         </article>
 
-        <article id="prism" class="proj card" data-project>
+        <article id="prism" class="proj card c-magenta" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-prism-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.prism.name">PRISM</span>
               <span class="proj-metric mono" data-i18n="proj.prism.metric">event-driven · Resim</span></div>
