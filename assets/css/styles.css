@@ -47,6 +47,7 @@ section{ max-width:var(--maxw); margin:0 auto; padding:96px 32px; scroll-margin-
   font-family:var(--display); font-size:2.1rem; font-weight:700; letter-spacing:-.022em;
   margin:.45rem 0 1.7rem; color:var(--text);
 }
+.section-lead{ color:var(--muted); font-size:1.02rem; max-width:660px; margin:-.9rem 0 2rem; }
 
 /* ---------- primitives ---------- */
 .card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:17px 19px; }
@@ -134,6 +135,9 @@ section{ max-width:var(--maxw); margin:0 auto; padding:96px 32px; scroll-margin-
 .tag{ font-size:.7rem; color:var(--muted); background:var(--surface-2);
   border:1px solid var(--border); border-radius:5px; padding:2px 8px; letter-spacing:.01em; }
 .proj-toggle{ font-size:.76rem; font-weight:600; color:var(--accent); margin-top:10px; }
+.proj-links{ margin-top:12px; font-size:.84rem; }
+.proj-links a{ color:var(--accent); font-weight:600; }
+.proj-links a:hover{ text-decoration:underline; }
 .proj-toggle::before{ content:"+ "; }
 .proj.is-open .proj-toggle::before{ content:"– "; }
 .proj-body{ padding:4px 19px 19px; display:flex; flex-direction:column; gap:10px;
@@ -160,9 +164,7 @@ section{ max-width:var(--maxw); margin:0 auto; padding:96px 32px; scroll-margin-
 .stat-l{ font-size:.58rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin-top:4px; }
 @media (max-width:768px){ .stat-row{ grid-template-columns:repeat(3,1fr); } }
 /* SVEvalFlow component coding — quiet left rule, muted tones */
-.proj.c-violet{ border-left:2px solid var(--indigo); }
-.proj.c-green{ border-left:2px solid var(--teal); }
-.proj.c-magenta{ border-left:2px solid var(--plum); }
+/* SVEvalFlow trio (Inferit/MTBF/PRISM): uniform cards — no multicolor side-stripe */
 .proj.is-open{ grid-column:1 / -1; }
 .proj[id], #mlops-platform{ scroll-margin-top:24px; }
 
