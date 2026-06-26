@@ -2,7 +2,7 @@ export const STRINGS = {
   en: {
     "meta.title": "Jihwan Choi — MLOps / Software Engineer",
     "nav.home":"HOME","nav.genai":"GENAI","nav.work":"WORK","nav.skills":"SKILLS","nav.projects":"PROJECTS","nav.ai":"AI",
-    "hero.cmd":"cat profile.md",
+    "hero.eyebrow":"Seoul, South Korea",
     "hero.name":"Jihwan Choi",
     "hero.role":"MLOps & Software Engineer · SVEvalFlow Owner",
     "hero.tagline":"I turn ML infrastructure into measurable business value — from distributed validation and cost-driven on-premise transitions to production Generative AI.",
@@ -168,7 +168,7 @@ export const STRINGS = {
   ko: {
     "meta.title":"최지환 — MLOps / 소프트웨어 엔지니어",
     "nav.home":"홈","nav.genai":"GENAI","nav.work":"경력","nav.skills":"기술","nav.projects":"프로젝트","nav.ai":"AI",
-    "hero.cmd":"cat profile.md",
+    "hero.eyebrow":"대한민국 서울",
     "hero.name":"최지환",
     "hero.role":"MLOps · 소프트웨어 엔지니어 · SVEvalFlow 오너",
     "hero.tagline":"ML 인프라를 측정 가능한 비즈니스 가치로 연결합니다 — 분산 검증, 비용 기반 On-Premise 전환, 그리고 프로덕션 Generative AI.",

@@ -4,13 +4,13 @@
 import { writeFileSync } from "node:fs";
 
 const W = 900, M = 26, GAP = 34, PAD = 13, TOP = 70, ROWGAP = 46;
-const FONT = "'JetBrains Mono',ui-monospace,Menlo,monospace";
+const FONT = "'IBM Plex Mono',ui-monospace,Menlo,monospace";
 const C = {
-  bg:"#0b1020", box:"#131a2e", border:"#1e293b", text:"#e2e8f0", sub:"#9fb0c3",
-  cap:"#7d8ba5", ttl:"#22d3ee", arrow:"#5b677d", chipbg:"#0f1626", chiptx:"#cbd5e1",
+  bg:"#ffffff", box:"#f4f0e7", border:"#e6e0d3", text:"#1f1d18", sub:"#5f5b50",
+  cap:"#8b8675", ttl:"#27317f", arrow:"#b3ab99", chipbg:"#ece7db", chiptx:"#3a362c",
 };
-const ACC = { cyan:"#22d3ee", violet:"#a78bfa", green:"#3fb950", amber:"#f59e0b" };
-const TINT = { cyan:"#0e2230", violet:"#1b1733", green:"#10241f", amber:"#241a10" };
+const ACC = { cyan:"#2c7572", violet:"#4a55b8", green:"#1d7a44", amber:"#a96a12" };
+const TINT = { cyan:"#e7f0ef", violet:"#eaecf8", green:"#e7f2eb", amber:"#f6efe2" };
 
 const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const charW = fs => fs * 0.6;
@@ -53,7 +53,7 @@ function renderBox(x, y, w, h, node, lay){
   }
   const tx = x + PAD + 6;
   let cy = y + 12 + 13;
-  const titleColor = node.emphasis ? "#e9fbff" : C.text;
+  const titleColor = C.text;
   for(const ln of lay.titleLines){
     s += `<text x="${tx}" y="${cy}" fill="${titleColor}" font-size="${TFS}" font-weight="700">${esc(ln)}</text>`;
     cy += TLH;
@@ -62,7 +62,7 @@ function renderBox(x, y, w, h, node, lay){
     cy += 8 - TLH + TLH; // keep baseline; small gap
     cy = y + 12 + lay.titleLines.length*TLH + 8 + 11;
     for(const ln of lay.bodyLines){
-      s += `<text x="${tx}" y="${cy}" fill="${node.emphasis ? "#bfe9d4" : C.sub}" font-size="${BFS}">${esc(ln)}</text>`;
+      s += `<text x="${tx}" y="${cy}" fill="${C.sub}" font-size="${BFS}">${esc(ln)}</text>`;
       cy += BLH;
     }
   }
@@ -87,12 +87,12 @@ function diagram(d){
   }
   // legend
   const legend = d.legend || [];
-  const LFS = 10, lcw = charW(LFS);
+  const LFS = 10, lcw = LFS * 0.64;   // safety margin: SVG-in-<img> falls back to system mono
   let lx = M, ly = y - ROWGAP + 24, legendSvg = "", lh = 0;
   if(legend.length){ lh = 8; }
   const chips = [];
   for(const t of legend){
-    const cw = Math.ceil(t.length*lcw) + 28;
+    const cw = Math.ceil((t.length + 2)*lcw) + 24;   // +2 for the "● " prefix
     if(lx + cw > W - M){ lx = M; ly += 34; }
     chips.push({ x:lx, y:ly, w:cw, t }); lx += cw + 10;
   }

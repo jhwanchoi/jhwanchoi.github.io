@@ -1,18 +1,6 @@
 import { applyLang } from "./i18n.js";
-import { SKILLS, badgeURL } from "./skills.js";
 
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/* ---- render shields.io skill badges (replaces text fallback) ---- */
-function initSkills(){
-  document.querySelectorAll(".chips[data-cat]").forEach(span=>{
-    const list = SKILLS[span.getAttribute("data-cat")];
-    if(!list) return;
-    span.classList.add("badges");
-    span.innerHTML = list.map(s=>
-      `<img loading="lazy" src="${badgeURL(s)}" alt="${s.n}">`).join("");
-  });
-}
 
 /* ---- language toggle ---- */
 function initLang(){
@@ -32,7 +20,6 @@ function initLang(){
       lang = (lang === "en") ? "ko" : "en";
       applyLang(lang);
       syncBtn();
-      retype();           // replay the hero typing in the new language
     });
   }
 }
@@ -116,21 +103,8 @@ function initCounters(){
   document.querySelectorAll("[data-count]").forEach(el=>obs.observe(el));
 }
 
-/* ---- typing effect on hero command ---- */
-let typeTimer = null;
-function retype(){
-  const el = document.querySelector(".hero-cmd .muted");
-  if(!el) return;
-  if(reduce) return;                 // applyLang already set full text
-  if(typeTimer) clearTimeout(typeTimer);
-  const full = el.textContent; el.textContent = "";
-  let i = 0;
-  (function tick(){ el.textContent = full.slice(0, ++i);
-    if(i < full.length) typeTimer = setTimeout(tick, 55); })();
-}
-
 window.addEventListener("DOMContentLoaded", ()=>{
-  initLang(); initSkills(); initSpy(); initCards(); initCounters(); retype();
+  initLang(); initSpy(); initCards(); initCounters();
   openFromHash();
 });
 window.addEventListener("hashchange", openFromHash);
