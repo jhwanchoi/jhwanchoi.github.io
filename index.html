@@ -52,14 +52,14 @@
     <!-- ============ GENAI ============ -->
     <section id="genai">
       <h2 class="section-title" data-i18n="genai.title">Generative AI Engineering</h2>
-      <p class="muted mono ai-period" data-i18n="genai.sub">Production LLM on Vertex AI · LLM cost observability · RAG · agentic tooling</p>
+      <p class="muted mono ai-period" data-i18n="genai.sub">Production multimodal VLM evaluation · LLM cost observability · RAG · agentic tooling</p>
       <div class="genai-list">
 
         <article id="gemini-vertex" class="proj card" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="genai-vertex-body">
-            <div class="proj-top"><span class="proj-name" data-i18n="genai.vertex.t">Gemini × Vertex AI — Production Multimodal Inference</span>
-              <span class="proj-metric mono" data-i18n="genai.vertex.m">in customer releases</span></div>
-            <span class="genai-tags"><span class="tag">Vertex AI</span><span class="tag">Gemini 2.5 Flash</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Airflow</span></span>
+            <div class="proj-top"><span class="proj-name" data-i18n="genai.vertex.t">Tiered Multimodal VLM Evaluation — Production</span>
+              <span class="proj-metric mono" data-i18n="genai.vertex.m">1,110-case golden set</span></div>
+            <span class="genai-tags"><span class="tag">Local VLM</span><span class="tag">AWS Bedrock</span><span class="tag">Claude Opus</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="genai-vertex-body" class="proj-body" hidden>
@@ -67,14 +67,14 @@
               <div class="case-sec">
                 <span class="case-label" data-i18n="case.highlights">Highlights</span>
                 <div class="kw-list">
-                  <div class="kw-card"><span class="kw" data-i18n="gv.1k">Vertex AI · Gemini 2.5 Flash</span><p data-i18n="gv.1">Multimodal service (vertexai=True): image frames + structured metadata + an inspection manual.</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="gv.2k">Structured output</span><p data-i18n="gv.2">Enforced JSON schema — FP/TP, category, confidence, and step-by-step reasoning.</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="gv.3k">Batched async + dedup</span><p data-i18n="gv.3">Per-request token tracking; batched async processing with deduplication (~40% fewer API calls).</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="gv.4k">Human-in-the-loop</span><p data-i18n="gv.4">Model assists, human makes the final call — running in real customer-release evaluation (MTBF).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.1k">Cost-aware routing</span><p data-i18n="gv.1">A 1,110-case golden-set policy routes deterministic 79.5% through rules and the remainder to VLM evaluation.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.2k">Local-first VLM</span><p data-i18n="gv.2">A local OpenAI-compatible VLM is the default, with self-consistency and JSON-schema-constrained output.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.3k">Selective Bedrock escalation</span><p data-i18n="gv.3">Only ~16% of ambiguous issue-axis cases escalate to Claude Opus, behind transfer approval and cost controls.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.4k">Human review state machine</span><p data-i18n="gv.4">Unreviewed AI decisions are retained for comparison but excluded from final KPIs until approved.</p></div>
                 </div>
               </div>
             </div>
-            <img class="genai-diagram" src="assets/diagrams/vertex-gemini.svg" alt="Gemini on Vertex AI auto-FP detection pipeline" loading="lazy">
+            <img class="genai-diagram" src="assets/diagrams/vertex-gemini.svg" alt="Tiered multimodal VLM evaluation pipeline with rules, local VLM, Bedrock escalation, and human review" loading="lazy">
           </div>
         </article>
 
@@ -199,12 +199,12 @@
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.languages">Languages</span><span class="chips" data-cat="languages">Python · C++ · TypeScript</span></div>
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.backend">Backend</span><span class="chips" data-cat="backend">Django · FastAPI · NestJS</span></div>
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.database">Database</span><span class="chips" data-cat="database">PostgreSQL · MongoDB · Redis</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.cloud">Cloud</span><span class="chips" data-cat="cloud">AWS · EC2 · EKS · ECS · SQS · SNS · Lambda · S3 · Bedrock</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.infra">Infrastructure</span><span class="chips" data-cat="infra">Kubernetes (RKE2) · Docker · Terraform · CDK · Rancher</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.cloud">Cloud</span><span class="chips" data-cat="cloud">AWS · Bedrock · NCP · NKS · Object Storage · NCR · GCP · Vertex AI</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.infra">Infrastructure</span><span class="chips" data-cat="infra">Kubernetes (RKE2 · NKS) · Docker · Terraform · CDK · Rancher</span></div>
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.mlops">ML / MLOps</span><span class="chips" data-cat="mlops">Ray · KubeRay · MLflow · KServe · Knative · lakeFS</span></div>
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.cicd">CI/CD</span><span class="chips" data-cat="cicd">ArgoCD · GitHub Actions · Harbor · Helm · Airflow</span></div>
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.monitoring">Monitoring</span><span class="chips" data-cat="monitoring">Grafana · Prometheus · Loki · Datadog</span></div>
-        <div class="skill-row"><span class="skill-cat" data-i18n="skills.ai">AI / LLM</span><span class="chips" data-cat="ai">Claude Code · Gemini CLI · Codex · MCP · AWS Bedrock · n8n</span></div>
+        <div class="skill-row"><span class="skill-cat" data-i18n="skills.ai">AI / LLM</span><span class="chips" data-cat="ai">Local VLM · AWS Bedrock · Vertex AI (Gemini) · Claude Code · Codex · MCP · n8n</span></div>
         <div class="skill-row"><span class="skill-cat" data-i18n="skills.tools">Tools</span><span class="chips" data-cat="tools">Git · Jira · Confluence · Atlassian API</span></div>
       </div>
     </section>
@@ -241,7 +241,7 @@
                   <div class="kw-card"><span class="kw" data-i18n="inferit.s2k">Option-file versioning</span><p data-i18n="inferit.s2">Versioned customer option files, eliminating 1–2 days of engineer↔PM search/communication.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="inferit.s3k">Distributed inference</span><p data-i18n="inferit.s3">Parallelized single-machine inference across cluster GPUs — acceleration proportional to GPUs per node.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="inferit.s4k">Evaluation-Driven Dev</span><p data-i18n="inferit.s4">Evaluation-Driven Development: auto-logged metrics to MLflow; versioned 256GB+ eval data via lakeFS (Git-like commit/branch).</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="inferit.s5k">Tech rationale</span><p data-i18n="inferit.s5">lakeFS (Git-like branching + S3/HCP-compatible, vs DVC); MLflow (open-source, in-house deployable, vs W&amp;B).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.s5k">Inferit ↔ MTBF artifact contract</span><p data-i18n="inferit.s5">MTBF resolves or triggers worker-image builds by branch, config, commit, and CUDA toolchain, with version/digest lineage and custom overrides.</p></div>
                 </div>
               </div>
               <div class="case-sec">
@@ -267,7 +267,7 @@
               <span class="proj-metric mono" data-i18n="proj.mtbf.metric">430,851 clips · 99.87%</span></div>
             <span class="status-badge st-operating" data-i18n="status.operating">Operating</span>
             <span class="proj-sub" data-i18n="proj.mtbf.sub">Large-scale reliability validation</span>
-            <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">HCP Object Storage</span></span>
+            <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">Airflow</span><span class="tag">RKE2 · NKS</span><span class="tag">NCP L40S</span><span class="tag">Local VLM</span><span class="tag">AWS Bedrock</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
           <div id="proj-mtbf-body" class="proj-body" hidden>
@@ -292,9 +292,9 @@
                 <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
                 <div class="kw-list">
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.s1k">Distributed pipeline</span><p data-i18n="mtbf.s1">Accelerated with Inferit's distributed inference; automated the Build → Inference → KPI pipeline via Airflow DAGs with a 7-type data validation suite.</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s2k">Monitoring + Visual Inspection</span><p data-i18n="mtbf.s2">Real-time dashboard + Visual Inspection UI (video/stats around flagged frames); Gemini-assisted review to cut repetitive checks — humans make the final call.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s2k">Tiered VLM + review gate</span><p data-i18n="mtbf.s2">Rules → local VLM → selective Bedrock escalation, with self-consistency and human approval before AI results enter final KPIs.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.s3k">Cloud → On-Premise</span><p data-i18n="mtbf.s3">Cost-analysis-driven On-Premise transition; ran GPU hardware benchmarks &amp; spec proposals; leveraged HCP Object Storage (one-time vs recurring S3).</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s4k">60+ GPU cluster ops</span><p data-i18n="mtbf.s4">Operated 60+ GPUs on Rancher-based Kubernetes; balanced scheduling via nodeSelector + per-GPU tolerations; guaranteed job priority via ResourceQuota + PriorityClass.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s4k">Urgent-job GPU scheduling</span><p data-i18n="mtbf.s4">Deficit-based partial preemption pauses only the required bulk capacity, records recovery debt, and automatically resumes work after the urgent job.</p></div>
                 </div>
               </div>
               <div class="case-sec">
@@ -307,6 +307,7 @@
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.o5k">Compute scale</span><p data-i18n="mtbf.o5">66,864 GPU-hours (~7.6 years of compute) run across the cluster.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.o6k">Detection quality</span><p data-i18n="mtbf.o6">43,116 AEB candidates surfaced with only ~10 real false positives (~1 per 5,000h).</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.o7k">Model improvement</span><p data-i18n="mtbf.o7">On a fixed validation set, FP dropped 263 → 92 → 9 across SW versions — quantifying continuous model improvement.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o8k">NCP production-scale validation</span><p data-i18n="mtbf.o8">57,745 commands over 1,000h completed in 23h 57m at 99.94%; zero infrastructure-attributable failures, with GPU nodes autoscaled 1→14→1.</p></div>
                 </div>
               </div>
             </div>
