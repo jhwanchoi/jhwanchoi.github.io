@@ -263,10 +263,10 @@ const DIAGRAMS = [
       { title:"Airflow Resim DAG", lines:["dual-version"], accent:"green", emphasis:true },
     ]}],
     legend: [
-      "Phase 1 (ISP): deployed ~150/month",
-      "Phase 2 (Resim): in dev · technical lead",
+      "Phase 1 (ISP): pre-deployment",
+      "Phase 2 (Resim): in dev · support",
       "FIFO ordering per issue key",
-      "80% faster than manual",
+      "~80% faster (target)",
     ],
   },
   {
@@ -283,7 +283,7 @@ const DIAGRAMS = [
     ]}],
     legend: [
       "430,851 clips · 99.87% cumulative",
-      "NCP: 57,745 commands / 1,000h · 99.94%",
+      "NCP: 57,745 commands / 1,068h · 99.94%",
       "GPU nodes autoscaled 1 → 14 → 1",
       "rules → local VLM → selective Bedrock escalation",
     ],
