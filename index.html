@@ -41,8 +41,8 @@
           <a class="btn ghost" href="mailto:jhwan333@gmail.com">Email</a>
         </div>
         <div class="metrics">
-          <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.saved.v">₩448M</div><div class="metric-l" data-i18n="metric.saved.l">SAVED VS AWS</div></div>
-          <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.valid.v">6mo→1.5mo</div><div class="metric-l" data-i18n="metric.valid.l">VALIDATION TIME</div></div>
+          <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.saved.v">55%</div><div class="metric-l" data-i18n="metric.saved.l">EST. SAVINGS VS AWS</div></div>
+          <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.valid.v">6mo→1.5mo</div><div class="metric-l" data-i18n="metric.valid.l">EST. VALIDATION TIME</div></div>
           <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.success.v">99.87%</div><div class="metric-l" data-i18n="metric.success.l">PIPELINE SUCCESS · JUN 2026</div></div>
           <div class="metric"><div class="metric-v mono" data-count data-i18n="metric.events.v">80M/day</div><div class="metric-l" data-i18n="metric.events.l">LOG EVENTS</div></div>
         </div>
@@ -67,9 +67,9 @@
               <div class="case-sec">
                 <span class="case-label" data-i18n="case.highlights">Highlights</span>
                 <div class="kw-list">
-                  <div class="kw-card"><span class="kw" data-i18n="gv.1k">Cost-aware routing</span><p data-i18n="gv.1">A 1,110-case golden-set policy routes deterministic 79.5% through rules and the remainder to VLM evaluation.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.1k">Cost-aware routing</span><p data-i18n="gv.1">On the 1,110-case golden set, rules resolve 54.7% of a 561-case stratified sample at 96.4% top-1 accuracy; the rest go to VLM evaluation.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="gv.2k">Local-first VLM</span><p data-i18n="gv.2">A local OpenAI-compatible VLM is the default, with self-consistency and JSON-schema-constrained output.</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="gv.3k">Selective Bedrock escalation</span><p data-i18n="gv.3">Only ~16% of ambiguous issue-axis cases escalate to Claude Opus, behind transfer approval and cost controls.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="gv.3k">Selective Bedrock escalation</span><p data-i18n="gv.3">Only ambiguous cases escalate to Claude Opus, behind transfer approval and cost controls. Production judgments matched validation-team ground truth on 92.6% of issue decisions (718/775).</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="gv.4k">Human review state machine</span><p data-i18n="gv.4">Unreviewed AI decisions are retained for comparison but excluded from final KPIs until approved.</p></div>
                 </div>
               </div>
@@ -81,7 +81,7 @@
         <article id="bedrock" class="proj card" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="genai-bedrock-body">
             <div class="proj-top"><span class="proj-name" data-i18n="genai.bedrock.t">LLM Cost &amp; Usage Observability (AWS Bedrock)</span>
-              <span class="proj-metric mono" data-i18n="genai.bedrock.m">90%+ vs billing</span></div>
+              <span class="proj-metric mono" data-i18n="genai.bedrock.m">Per-model / per-team cost</span></div>
             <span class="genai-tags"><span class="tag">AWS Bedrock</span><span class="tag">CloudWatch</span><span class="tag">Lambda</span><span class="tag">Terraform</span><span class="tag">Python</span></span>
             <span class="proj-toggle" data-i18n="projects.expand">Details</span>
           </button>
@@ -93,7 +93,7 @@
                   <div class="kw-card"><span class="kw" data-i18n="bd.1k">Token-level cost</span><p data-i18n="bd.1">Input/output/cache tokens tracked; cost-per-request from pricing.json (incl. cache-token multipliers).</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="bd.2k">Per-model / per-team</span><p data-i18n="bd.2">Cost attribution across models and teams via CloudWatch Logs Insights.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="bd.3k">CloudWatch + Slack · IaC</span><p data-i18n="bd.3">Daily multi-region Lambda → custom metrics + dashboard + Slack report; deployed as Terraform IaC.</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="bd.4k">90%+ accuracy</span><p data-i18n="bd.4">Within 90%+ of actual billing; adopted as an org-level cost-optimization decision tool.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="bd.4k">Decision tool</span><p data-i18n="bd.4">Adopted as an org-level cost-optimization decision tool; per-user spend simulations backed recommending flat-rate subscriptions for non-developers.</p></div>
                 </div>
               </div>
             </div>
@@ -170,9 +170,9 @@
             <span class="tl-co" data-i18n="work.sv.co">Stradvision</span>
             <span class="tl-meta"><span data-i18n="work.sv.role">Software Engineer</span> · <span data-i18n="work.sv.date">Jul 2022 – Present</span></span>
           </header>
-          <h3 id="mlops-platform" class="tl-sub" data-i18n="work.sv.mlops.h">MLOps Platform</h3>
+          <h3 id="mlops-platform" class="tl-sub" data-i18n="work.sv.mlops.h">MLOps Platform — Shared GPU Cluster (GitOps Re-architecture) &amp; SVEvalFlow Owner (Oct 2025 – Present)</h3>
           <div class="kw-list">
-            <div class="kw-card"><span class="kw" data-i18n="mp.1k">Shared GPU cluster (co-design)</span><p data-i18n="mp.1">RKE2 Kubernetes, 60+ heterogeneous GPUs; co-designed with another engineer, led scheduler &amp; queue-policy design.</p></div>
+            <div class="kw-card"><span class="kw" data-i18n="mp.1k">Shared GPU cluster (GitOps re-architecture)</span><p data-i18n="mp.1">RKE2 Kubernetes, 60+ heterogeneous GPUs. Took it over and re-architected it for GitOps operations, leading the scheduler and queue-policy design.</p></div>
             <div class="kw-card"><span class="kw" data-i18n="mp.2k">SVEvalFlow ownership</span><p data-i18n="mp.2">Sole owner of the inference/evaluation workflow — Inferit, MTBF Validation, PRISM.</p></div>
             <div class="kw-card"><span class="kw" data-i18n="mp.3k">15+ MLOps components</span><p data-i18n="mp.3">Integrated Ray/KubeRay, KServe/Knative, MLflow, Airflow, ArgoCD, Harbor, lakeFS.</p></div>
             <div class="kw-card"><span class="kw" data-i18n="mp.4k">CI/CD + GitOps</span><p data-i18n="mp.4">3 CI/CD pipelines (GitHub Actions → registry → ArgoCD); Scale-to-Zero serverless inference to cut idle GPU cost.</p></div>
@@ -219,7 +219,7 @@
         <article id="inferit" class="proj card c-violet" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-inferit-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.inferit.name">Inferit</span>
-              <span class="proj-metric mono" data-i18n="proj.inferit.metric">6mo → 1.5mo</span></div>
+              <span class="proj-metric mono" data-i18n="proj.inferit.metric">5+ major versions</span></div>
             <span class="status-badge st-pilot" data-i18n="status.pilot">Pilot</span>
             <span class="proj-sub" data-i18n="proj.inferit.sub">svnet3 build/inference acceleration</span>
             <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">lakeFS</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">HCP Object Storage</span></span>
@@ -249,7 +249,7 @@
               <div class="case-sec">
                 <span class="case-label" data-i18n="case.outcome">Outcomes</span>
                 <div class="kw-list">
-                  <div class="kw-card"><span class="kw" data-i18n="inferit.o1k">Inference acceleration</span><p data-i18n="inferit.o1">20,000-hour validation: estimated 6+ months → 1.5 months vs a single machine.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="inferit.o1k">Reproducible engines</span><p data-i18n="inferit.o1">Immutable tags and digest pinning: the same engine produced byte-identical output on cloud L40S and on-prem RTX 5090 (8,989/8,989 frames).</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="inferit.o2k">Search load removed</span><p data-i18n="inferit.o2">Customer option-file versioning removed 1–2 days of communication per ticket.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="inferit.o3k">Version compatibility</span><p data-i18n="inferit.o3">5+ major release versions supported; automated inference per customer issue ticket.</p></div>
                 </div>
@@ -266,7 +266,7 @@
         <article id="mtbf" class="proj card c-green" data-project>
           <button class="proj-head" aria-expanded="false" aria-controls="proj-mtbf-body">
             <div class="proj-top"><span class="proj-name" data-i18n="proj.mtbf.name">MTBF Validation</span>
-              <span class="proj-metric mono" data-i18n="proj.mtbf.metric">430,851 clips · 99.87%</span></div>
+              <span class="proj-metric mono" data-i18n="proj.mtbf.metric">430,851 cmds · 99.87%</span></div>
             <span class="status-badge st-operating" data-i18n="status.operating">Operating</span>
             <span class="proj-sub" data-i18n="proj.mtbf.sub">Large-scale reliability validation</span>
             <span class="proj-tags"><span class="tag">FastAPI</span><span class="tag">Airflow</span><span class="tag">RKE2 · NKS</span><span class="tag">NCP L40S</span><span class="tag">Local VLM</span><span class="tag">AWS Bedrock</span></span>
@@ -274,9 +274,9 @@
           </button>
           <div id="proj-mtbf-body" class="proj-body" hidden>
             <div class="stat-row">
-              <div class="stat"><div class="stat-v mono">430,851</div><div class="stat-l" data-i18n="mtile.clips">CLIPS</div></div>
+              <div class="stat"><div class="stat-v mono">430,851</div><div class="stat-l" data-i18n="mtile.clips">COMMANDS</div></div>
               <div class="stat"><div class="stat-v mono">99.87%</div><div class="stat-l" data-i18n="mtile.success">PIPELINE SUCCESS</div></div>
-              <div class="stat"><div class="stat-v mono">15,233h</div><div class="stat-l" data-i18n="mtile.footage">FOOTAGE</div></div>
+              <div class="stat"><div class="stat-v mono">23h57m</div><div class="stat-l" data-i18n="mtile.footage">1,068H RUN · 56 L40S</div></div>
               <div class="stat"><div class="stat-v mono">66,864</div><div class="stat-l" data-i18n="mtile.gpu">GPU-HOURS</div></div>
               <div class="stat"><div class="stat-v mono">≈10</div><div class="stat-l" data-i18n="mtile.fp">REAL FP</div></div>
               <div class="stat"><div class="stat-v mono">263→9</div><div class="stat-l" data-i18n="mtile.trend">FP v31→v33</div></div>
@@ -293,7 +293,7 @@
               <div class="case-sec">
                 <span class="case-label" data-i18n="case.solution">Approach &amp; Solution</span>
                 <div class="kw-list">
-                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s1k">Distributed pipeline</span><p data-i18n="mtbf.s1">Accelerated with Inferit's distributed inference; automated the Build → Inference → KPI pipeline via Airflow DAGs with a 7-type data validation suite.</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.s1k">Distributed pipeline</span><p data-i18n="mtbf.s1">Accelerated with distributed/parallel GPU inference (later shared with Inferit), and automated the Build → Inference → KPI pipeline via Airflow DAGs with a 7-type data validation suite.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.s2k">Tiered VLM + review gate</span><p data-i18n="mtbf.s2">Rules → local VLM → selective Bedrock escalation, with self-consistency and human approval before AI results enter final KPIs.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.s3k">Cloud → On-Premise</span><p data-i18n="mtbf.s3">Cost-analysis-driven On-Premise transition; ran GPU hardware benchmarks &amp; spec proposals; leveraged HCP Object Storage (one-time vs recurring S3).</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.s4k">Urgent-job GPU scheduling</span><p data-i18n="mtbf.s4">Deficit-based partial preemption pauses only the required bulk capacity, records recovery debt, and automatically resumes work after the urgent job.</p></div>
@@ -305,9 +305,9 @@
               <div class="case-sec">
                 <span class="case-label" data-i18n="case.outcome">Outcomes</span>
                 <div class="kw-list">
-                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o1k">Scale &amp; reliability</span><p data-i18n="mtbf.o1">430,851 clips analyzed at a 99.87% success rate (15,233h of driving footage, cumulative as of Jun 2026).</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o2k">Throughput &amp; time</span><p data-i18n="mtbf.o2">+205% throughput and 67.3% lower processing time vs a single machine (est. 6+ months → 1.5 months).</p></div>
-                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o3k">Cost saved</span><p data-i18n="mtbf.o3">AWS ₩820M → On-Premise ₩370M (55% saved).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o1k">Scale &amp; reliability</span><p data-i18n="mtbf.o1">430,851 processing commands completed at a 99.87% success rate (cumulative as of Jun 2026).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o2k">Throughput &amp; time</span><p data-i18n="mtbf.o2">+205% throughput and 67.3% lower processing time vs the previous infrastructure (2025; est. 6+ months → 1.5 months for a 20,000-hour validation).</p></div>
+                  <div class="kw-card"><span class="kw" data-i18n="mtbf.o3k">Cost saved</span><p data-i18n="mtbf.o3">Quote-based estimate: ~55% lower cost than AWS.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.o4k">1-person operation</span><p data-i18n="mtbf.o4">Automation enabled large-scale validation to be operated by a single person.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.o5k">Compute scale</span><p data-i18n="mtbf.o5">66,864 GPU-hours (~7.6 years of compute) run across the cluster.</p></div>
                   <div class="kw-card"><span class="kw" data-i18n="mtbf.o6k">Detection quality</span><p data-i18n="mtbf.o6">43,116 AEB candidates surfaced with only ~10 real false positives (~1 per 5,000h).</p></div>

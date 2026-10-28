@@ -137,9 +137,9 @@ const DIAGRAMS = [
     subtitle: "golden-set policy · cost-aware routing · human-reviewed output",
     rows: [{ boxes: [
       { title:"MTBF evidence", lines:["frames + telemetry","inspection context"], accent:"cyan" },
-      { title:"Rule tier", lines:["deterministic 79.5%","of 1,110 cases"], accent:"violet" },
+      { title:"Rule tier", lines:["54.7% of 561 sampled","96.4% top-1"], accent:"violet" },
       { title:"Local VLM", lines:["default evaluator","self-consistency"], accent:"green", emphasis:true },
-      { title:"Bedrock · Claude Opus", lines:["ambiguous ~16%","transfer approval"], accent:"amber" },
+      { title:"Bedrock · Claude Opus", lines:["ambiguous only","transfer approval"], accent:"amber" },
       { title:"Review gate", lines:["human-approved only","to final KPI"], accent:"cyan" },
     ]}],
     legend: [
@@ -164,7 +164,7 @@ const DIAGRAMS = [
     legend: [
       "cache-token pricing (0.1x / 1.25x)",
       "per-user IAM cost attribution",
-      "90%+ vs actual billing",
+      "per-model cost attribution",
       "org cost-optimization tool",
     ],
   },
@@ -195,7 +195,7 @@ const DIAGRAMS = [
   {
     file: "mlops-platform.svg",
     title: "MLOps Platform — Shared GPU Cluster & SVEvalFlow",
-    subtitle: "RKE2 Kubernetes · GitOps · co-designed (led scheduler & queue policy)",
+    subtitle: "RKE2 Kubernetes · GitOps · took over & re-architected (led scheduler & queue policy)",
     rows: [
       { label:"SVEVALFLOW · inference / evaluation (sole owner)", flow:false, boxes:[
         { title:"Inferit", lines:["svnet3 build","+ inference"], accent:"green", emphasis:true },
@@ -245,7 +245,7 @@ const DIAGRAMS = [
     legend: [
       "builds svnet3 across many configs",
       "option-file / camera-param versioning",
-      "distributed/parallel: 6mo to 1.5mo",
+      "byte-identical output across GPUs",
       "MTBF lookup/build API by branch · config · commit",
     ],
   },
@@ -282,7 +282,7 @@ const DIAGRAMS = [
       { title:"Review + KPI", lines:["human-approved","Postgres · dashboard"], accent:"cyan" },
     ]}],
     legend: [
-      "430,851 clips · 99.87% cumulative",
+      "430,851 commands · 99.87% cumulative",
       "NCP: 57,745 commands / 1,068h · 99.94%",
       "GPU nodes autoscaled 1 → 14 → 1",
       "rules → local VLM → selective Bedrock escalation",
